@@ -17,7 +17,8 @@ const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid red;
+  background-color: white;
+  // border: 1px solid red;
 `;
 
 export default Footer;

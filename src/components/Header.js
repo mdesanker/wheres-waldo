@@ -40,7 +40,9 @@ const HeaderContainer = styled.header`
   align-items: center;
   gap: 20px;
 
-  border: 1px solid red;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  // border: 1px solid red;
 `;
 
 export default Header;

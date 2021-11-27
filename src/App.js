@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./components/home/Home";
 import GlobalStyle from "./themes/GlobalStyles";
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     <Fragment>
       <GlobalStyle />
       <Header />
+      <Home />
       <Footer />
     </Fragment>
   );
