@@ -1,14 +1,21 @@
 import styled from "styled-components";
+import waldoImg from "../images/waldo-icon.jpg";
 
 const Header = () => {
   return (
     <HeaderContainer>
+      <LogoImage src={waldoImg} alt="waldo" />
       <Logo>
         <span>Where's</span> Waldo?
       </Logo>
     </HeaderContainer>
   );
 };
+
+const LogoImage = styled.img`
+  height: 30px;
+  width: 30px;
+`;
 
 const Logo = styled.h1`
   font-size: 1rem;
@@ -31,6 +38,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 
   border: 1px solid red;
 `;
