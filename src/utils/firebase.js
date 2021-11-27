@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBhnGdN-nfbf0AyplaJtAuqHzKYK6cOtYc",
   authDomain: "where-s-waldo-823a9.firebaseapp.com",
@@ -7,14 +10,11 @@ const firebaseConfig = {
   appId: "1:603986132702:web:37592131127dcffae90c4f",
 };
 
-export const getFirebaseConfig = () => {
-  if (!firebaseConfig || !firebaseConfig.apiKey) {
-    throw new Error(
-      "No Firebase configuration object provided." +
-        "\n" +
-        "Add your web app's configuration object to firebase-config.js"
-    );
-  } else {
-    return firebaseConfig;
-  }
-};
+// initialize firebase
+initializeApp(firebaseConfig);
+
+// initialize services
+const database = getFirestore();
+
+// collection references
+// const imgRef = collection(database, "images");

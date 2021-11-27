@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-// import { getFirebaseConfig } from "./firebase-config";
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
