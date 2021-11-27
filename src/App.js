@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import GlobalStyle from "./themes/GlobalStyles";
 
@@ -7,6 +8,7 @@ const App = () => {
     <Fragment>
       <GlobalStyle />
       <Header />
+      <Footer />
     </Fragment>
   );
 };

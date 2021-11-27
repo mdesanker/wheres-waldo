@@ -11,6 +11,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: arial, sans-serif;
     font-size: 18px;
   }
+
+  body {
+    width: 100%;
+    /* For footer positioning */
+    position: relative;
+    min-height: 100vh;
+  }
 `;
 
 export default GlobalStyle;
