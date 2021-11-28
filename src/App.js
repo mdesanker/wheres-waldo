@@ -14,6 +14,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/wheres-waldo" element={<Home />} />
+          <Route path="/wheres-waldo/level/:id" element={<Level />} />
         </Routes>
       </Router>
       <Footer />
