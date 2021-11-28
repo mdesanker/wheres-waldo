@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const LevelCard = (props) => {
   return (
     <CardContainer>
-      <ImageContainer />
-      <Label>Placeholder</Label>
+      <Link to="/wheres-waldo/level/1">
+        <ImageContainer />
+        <Label>Placeholder</Label>
+      </Link>
     </CardContainer>
   );
 };

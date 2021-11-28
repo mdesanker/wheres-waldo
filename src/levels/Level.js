@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import styled from "styled-components";
 
-const Level = ({ match }) => {
-  console.log(match);
+const Level = (props) => {
+  console.log(props);
   const { id } = useParams();
   console.log(id);
 
