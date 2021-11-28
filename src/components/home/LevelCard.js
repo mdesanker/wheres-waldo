@@ -11,18 +11,24 @@ const LevelCard = (props) => {
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   background-color: lightgray;
 `;
 
-const Label = styled.div`
+const Label = styled.label`
   width: 100%;
-  height: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CardContainer = styled.div`
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 230px;
+  margin: 1rem;
+
+  border: 1px solid red;
 `;
 
 export default LevelCard;
