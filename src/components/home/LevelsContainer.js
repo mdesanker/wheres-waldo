@@ -6,13 +6,22 @@ import Level3Img from "../../images/waldo-3.jpg";
 
 const LevelsContainer = (props) => {
   const levels = [
-    { img: Level1Img, id: 1 },
-    { img: Level2Img, id: 2 },
-    { img: Level3Img, id: 3 },
+    { name: "Level 1", img: Level1Img, id: 1 },
+    { name: "Level 2", img: Level2Img, id: 2 },
+    { name: "Level 3", img: Level3Img, id: 3 },
   ];
 
+  // console.log(levels[0].img);
+
   const content = levels.map((level) => {
-    return <LevelCard key={level.id} id={level.id} img={level.img} />;
+    return (
+      <LevelCard
+        key={level.id}
+        id={level.id}
+        name={level.name}
+        img={level.img}
+      />
+    );
   });
 
   return <LevelsWrapper>{content}</LevelsWrapper>;

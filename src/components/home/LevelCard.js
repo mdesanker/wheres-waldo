@@ -2,20 +2,25 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const LevelCard = (props) => {
+  console.log(props.img);
+
   return (
     <CardContainer>
       <NavLink to={`/wheres-waldo/level/${props.id}`}>
-        <ImageContainer />
-        <Label>Placeholder</Label>
+        <ImageContainer src={props.img} alt="waldo" />
+        <Label>{props.name}</Label>
       </NavLink>
     </CardContainer>
   );
 };
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.img`
   width: 100%;
   height: 200px;
-  background-color: lightgray;
+  // background-color: lightgray;
+  // background-image: ${(props) => `url(../../images/${props.img}.jpg)`};
+  // background-size: cover;
+  // background-position: center;
 `;
 
 const Label = styled.label`
