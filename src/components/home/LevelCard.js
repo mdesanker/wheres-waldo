@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import waldo from "../../images/waldo-1.jpg";
 
 const LevelCard = (props) => {
   // console.log(props.image);
