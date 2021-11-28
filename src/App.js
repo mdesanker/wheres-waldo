@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/home/Home";
 import GlobalStyle from "./themes/GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Level from "./levels/Level";
 
 const App = () => {
   return (
