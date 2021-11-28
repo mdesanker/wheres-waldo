@@ -4,7 +4,7 @@ import styled from "styled-components";
 const LevelCard = (props) => {
   return (
     <CardContainer>
-      <NavLink to="/wheres-waldo/level/1">
+      <NavLink to={`/wheres-waldo/level/${props.id}`}>
         <ImageContainer />
         <Label>Placeholder</Label>
       </NavLink>
