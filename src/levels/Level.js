@@ -12,19 +12,23 @@ const Level = (props) => {
 
   return (
     <LevelContainer>
-      Test
       <Map src={image} />
     </LevelContainer>
   );
 };
 
 const Map = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  height: auto;
+  min-width: 500px;
 `;
 
 const LevelContainer = styled.main`
   margin: 50px auto;
+  width: 100%;
+  // max-width: 1200px;
+  display: flex;
+  justify-content: center;
 `;
 
 export default Level;
