@@ -4,12 +4,12 @@ import styled from "styled-components";
 // import waldo from "../../images/waldo-1.jpg";
 
 const LevelCard = (props) => {
-  console.log(props.level);
+  // console.log(props.image);
 
   return (
     <CardContainer>
       <NavLink to={`/wheres-waldo/level/${props.level.id}`}>
-        <ImageContainer src={props.level.img} alt={`${props.level.name} map`} />
+        <ImageContainer src={props.image} alt={`${props.level.name} map`} />
         <Label>{props.level.name}</Label>
       </NavLink>
     </CardContainer>

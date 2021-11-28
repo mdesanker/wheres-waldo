@@ -1,21 +1,33 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
 import LevelCard from "./LevelCard";
 import levelData from "../../utils/levels.json";
 
 const LevelsContainer = (props) => {
-  const [levels, setLevels] = useState([]);
+  const levels = levelData;
 
-  useEffect(() => {
-    setLevels(levelData);
-  }, []);
+  const importAll = (r) => {
+    const images = {};
+    r.keys().map((item) => {
+      return (images[item.replace("./", "")] = r(item));
+    });
+    return images;
+  };
 
-  console.log(levels);
+  const images = importAll(
+    require.context("../../images", false, /\.(png|jpe?g|svg)$/)
+  );
 
-  // console.log(levels[0].img);
+  // console.log(images);
 
   const content = levels.map((level) => {
-    return <LevelCard key={level.id} level={level} />;
+    // console.log(images[level.image].default);
+    return (
+      <LevelCard
+        key={level.id}
+        level={level}
+        image={images[level.image].default}
+      />
+    );
   });
 
   return <LevelsWrapper>{content}</LevelsWrapper>;
