@@ -2,31 +2,49 @@
   {
     "name": "Level 1",
     "image": "waldo-1.jpg",
-    "id": 1
+    "id": 1,
+    "objectives": {
+      "waldo": []
+    }
   },
   {
     "name": "Level 2",
     "image": "waldo-2.jpg",
-    "id": 2
+    "id": 2,
+    "objectives": {
+      "waldo": [0.62, 0.413]
+    }
   },
   {
     "name": "Level 3",
     "image": "waldo-3.jpg",
-    "id": 3
+    "id": 3,
+    "objectives": {
+      "waldo": []
+    }
   },
   {
     "name": "Level 4",
     "image": "waldo-4.jpg",
-    "id": 4
+    "id": 4,
+    "objectives": {
+      "waldo": []
+    }
   },
   {
     "name": "Level 5",
     "image": "waldo-5.jpg",
-    "id": 5
+    "id": 5,
+    "objectives": {
+      "waldo": []
+    }
   },
   {
     "name": "Level 6",
     "image": "waldo-6.jpg",
-    "id": 6
+    "id": 6,
+    "objectives": {
+      "waldo": []
+    }
   }
 ]

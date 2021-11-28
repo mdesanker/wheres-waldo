@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import levelData from "../utils/levels.json";
 
 const Level = (props) => {
   const { id } = useParams();
-  // console.log(id);
+
+  // Save level data in state
+  const [level, setLevel] = useState({});
+
+  useEffect(() => {
+    setLevel(levelData[id - 1]);
+  }, []);
+
+  console.log(level);
 
   // Get relevant image for level selected
   const image = require(`../images/waldo-${id}.jpg`).default;
@@ -24,7 +34,7 @@ const Level = (props) => {
 
     // console.log(left, top, right, bottom);
 
-    console.log([calcX.toFixed(2), calcY.toFixed(2)]);
+    console.log([calcX.toFixed(3), calcY.toFixed(3)]);
   };
 
   return (
