@@ -1,32 +1,15 @@
 import styled from "styled-components";
-import LevelCard from "./LevelCard";
+import LevelsContainer from "./LevelsContainer";
 
 const Home = () => {
   return (
     <Wrapper>
       <HomeContainer>
-        <LevelsContainer>
-          <LevelCard />
-          <LevelCard />
-          <LevelCard />
-          <LevelCard />
-          <LevelCard />
-          <LevelCard />
-        </LevelsContainer>
+        <LevelsContainer />
       </HomeContainer>
     </Wrapper>
   );
 };
-
-const LevelsContainer = styled.div`
-  width: 100%;
-  // min-height: 70vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  border: 1px solid red;
-`;
 
 const HomeContainer = styled.div`
   width: 100%;
