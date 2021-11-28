@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const LevelCard = (props) => {
   return (
     <CardContainer>
-      <Link to="/wheres-waldo/level/1">
+      <NavLink to="/wheres-waldo/level/1">
         <ImageContainer />
         <Label>Placeholder</Label>
-      </Link>
+      </NavLink>
     </CardContainer>
   );
 };
@@ -32,6 +32,11 @@ const CardContainer = styled.div`
   margin: 1rem;
 
   border: 1px solid red;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export default LevelCard;
