@@ -12,7 +12,8 @@
     "image": "waldo-2.jpg",
     "id": 2,
     "objectives": {
-      "waldo": [0.62, 0.413]
+      "waldo": [0.62, 0.413],
+      "odlaw": [0.107, 0.387]
     }
   },
   {
