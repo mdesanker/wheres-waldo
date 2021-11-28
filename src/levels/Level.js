@@ -8,7 +8,6 @@ const Level = (props) => {
 
   const [level, setLevel] = useState({});
   const [hidden, setHidden] = useState({});
-  // const [waldoFound, setWaldoFound] = useState(false);
 
   const [currentClick, setCurrentClick] = useState([]);
 
@@ -16,15 +15,14 @@ const Level = (props) => {
     setLevel(levelData[id - 1]);
   }, []);
 
-  console.log(level);
+  // console.log(level);
 
   useEffect(() => {
     setHidden(level.objectives);
   }, [level]);
 
-  console.log(hidden);
-
-  // console.log(level);
+  // console.log(hidden);
+  // console.log("waldo", hidden.waldo);
 
   // Get relevant image for level selected
   const image = require(`../images/waldo-${id}.jpg`).default;
@@ -39,7 +37,6 @@ const Level = (props) => {
     // Get coordinates of user click
     const userX = e.clientX;
     const userY = e.clientY;
-    // console.log(`x: ${userX}, y: ${userY}`);
 
     // Get bounding coordinates of clicked element
     const { left, top, right, bottom } = e.target.getBoundingClientRect();
@@ -55,9 +52,22 @@ const Level = (props) => {
     ];
 
     setCurrentClick(coords);
+
+    // Check if waldo clicked
+    console.log(
+      "waldo clicked",
+      Math.abs(coords[0] - hidden.waldo[0]) < 0.02 &&
+        Math.abs(coords[1] - hidden.waldo[1]) < 0.02
+    );
+
+    console.log(
+      "odlaw clicked",
+      Math.abs(coords[0] - hidden.odlaw[0]) < 0.02 &&
+        Math.abs(coords[1] - hidden.odlaw[1]) < 0.02
+    );
   };
 
-  console.log(currentClick);
+  console.log("click", currentClick);
 
   return (
     <LevelContainer>
