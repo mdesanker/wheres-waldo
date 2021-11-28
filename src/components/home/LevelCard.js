@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+// import waldo from "../../images/waldo-1.jpg";
 
 const LevelCard = (props) => {
-  console.log(props.img);
+  console.log(props.level);
 
   return (
     <CardContainer>
-      <NavLink to={`/wheres-waldo/level/${props.id}`}>
-        <ImageContainer src={props.img} alt="waldo" />
-        <Label>{props.name}</Label>
+      <NavLink to={`/wheres-waldo/level/${props.level.id}`}>
+        <ImageContainer src={props.level.img} alt={`${props.level.name} map`} />
+        <Label>{props.level.name}</Label>
       </NavLink>
     </CardContainer>
   );
@@ -17,10 +19,6 @@ const LevelCard = (props) => {
 const ImageContainer = styled.img`
   width: 100%;
   height: 200px;
-  // background-color: lightgray;
-  // background-image: ${(props) => `url(../../images/${props.img}.jpg)`};
-  // background-size: cover;
-  // background-position: center;
 `;
 
 const Label = styled.label`

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Level 1",
+    "image": "waldo-1.jpg",
+    "id": 1
+  },
+  {
+    "name": "Level 2",
+    "image": "waldo-2.jpg",
+    "id": 2
+  },
+  {
+    "name": "Level 3",
+    "image": "waldo-3.jpg",
+    "id": 3
+  },
+  {
+    "name": "Level 4",
+    "image": "waldo-4.jpg",
+    "id": 4
+  },
+  {
+    "name": "Level 5",
+    "image": "waldo-5.jpg",
+    "id": 5
+  },
+  {
+    "name": "Level 6",
+    "image": "waldo-6.jpg",
+    "id": 6
+  }
+]
