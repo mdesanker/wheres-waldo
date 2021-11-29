@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
-import levelData from "../utils/levels.json";
+import levelData from "../../utils/levels.json";
 
 const Level = (props) => {
   const { id } = useParams();
@@ -25,7 +25,7 @@ const Level = (props) => {
   // console.log("waldo", hidden.waldo);
 
   // Get relevant image for level selected
-  const image = require(`../images/waldo-${id}.jpg`).default;
+  const image = require(`../../images/waldo-${id}.jpg`).default;
 
   // Get coordinates of waldo objective
   // const { waldo } = level.objectives;
@@ -65,7 +65,21 @@ const Level = (props) => {
       Math.abs(coords[0] - hidden.odlaw[0]) < 0.02 &&
         Math.abs(coords[1] - hidden.odlaw[1]) < 0.02
     );
+
+    console.log(
+      "wizard clicked",
+      Math.abs(coords[0] - hidden.wizard[0]) < 0.02 &&
+        Math.abs(coords[1] - hidden.wizard[1]) < 0.02
+    );
   };
+
+  // TODO: write function to check if objectives clicked
+
+  // TODO: write function to render menu at position of click
+
+  // TODO: add button to return to home screen
+
+  // TODO: add menu showing objectives to find
 
   console.log("click", currentClick);
 
