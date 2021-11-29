@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import levelData from "../../utils/levels.json";
+import { Link } from "react-router-dom";
 
 const Level = (props) => {
   const { id } = useParams();
@@ -88,7 +89,9 @@ const Level = (props) => {
     <LevelContainer>
       <Map src={image} onClick={clickHandler} />
 
-      <Button>Return Home</Button>
+      <Link to="/wheres-waldo">
+        <Button>Return Home</Button>
+      </Link>
     </LevelContainer>
   );
 };
