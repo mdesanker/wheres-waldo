@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Button from "../../components/Button";
 import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
+import Characters from "./Characters";
 
 const Level = (props) => {
   const { id } = useParams();
@@ -79,14 +80,13 @@ const Level = (props) => {
 
   // TODO: write function to render menu at position of click
 
-  // TODO: add button to return to home screen
-
   // TODO: add menu showing objectives to find
 
   console.log("click", currentClick);
 
   return (
     <LevelContainer>
+      <Characters chars={level.objectives} />
       <Map src={image} onClick={clickHandler} />
 
       <Link to="/wheres-waldo">
