@@ -41,8 +41,11 @@ const Level = (props) => {
     const userX = e.clientX;
     const userY = e.clientY;
 
+    const map = document.querySelector(`#map-${level.id}`);
+    console.log(map);
+
     // Get bounding coordinates of clicked element
-    const { left, top, right, bottom } = e.target.getBoundingClientRect();
+    const { left, top, right, bottom } = map.getBoundingClientRect();
 
     const calcX = (userX - left) / (right - left);
     const calcY = (userY - top) / (bottom - top);
@@ -87,7 +90,7 @@ const Level = (props) => {
   return (
     <LevelContainer>
       <Characters chars={level.objectives} />
-      <Map src={image} onClick={clickHandler} />
+      <Map src={image} onClick={clickHandler} id={`map-${level.id}`} />
 
       <Link to="/wheres-waldo">
         <Button>Return Home</Button>
