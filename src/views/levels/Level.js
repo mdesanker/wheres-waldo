@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import Button from "../../components/Button";
 import levelData from "../../utils/levels.json";
 
 const Level = (props) => {
@@ -86,6 +87,8 @@ const Level = (props) => {
   return (
     <LevelContainer>
       <Map src={image} onClick={clickHandler} />
+
+      <Button>Return Home</Button>
     </LevelContainer>
   );
 };
@@ -101,7 +104,9 @@ const LevelContainer = styled.main`
   width: 100%;
   // max-width: 1200px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 export default Level;
