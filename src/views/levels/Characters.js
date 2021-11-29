@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import waldo from "../../images/waldo.jpg";
-import odlaw from "../../images/odlaw.jpg";
-import wizard from "../../images/wizard.jpg";
+import CharacterIcon from "./CharacterIcon";
+// import waldo from "../../images/waldo.jpg";
+// import odlaw from "../../images/odlaw.jpg";
+// import wizard from "../../images/wizard.jpg";
 
 const Characters = (props) => {
   const [characters, setCharacters] = useState([]);
@@ -17,7 +18,17 @@ const Characters = (props) => {
 
   // console.log(Object.entries(props.chars));
 
-  return <CharactersContainer></CharactersContainer>;
+  const content = characters.map((char) => {
+    // console.log(char);
+    return (
+      <CharacterIcon
+        img={require(`../../images/${char}.jpg`).default}
+        name={char}
+      />
+    );
+  });
+
+  return <CharactersContainer>{content}</CharactersContainer>;
 };
 
 const CharactersContainer = styled.div`
