@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CharacterIcon from "./CharacterIcon";
-// import waldo from "../../images/waldo.jpg";
-// import odlaw from "../../images/odlaw.jpg";
-// import wizard from "../../images/wizard.jpg";
 
 const Characters = (props) => {
   const [characters, setCharacters] = useState([]);
+  const [isFound, setIsFound] = useState(false);
 
   useEffect(() => {
     if (props.chars) {
@@ -14,21 +12,18 @@ const Characters = (props) => {
     }
   }, [props.chars]);
 
-  // console.log(characters);
-
-  // console.log(Object.entries(props.chars));
-
-  const content = characters.map((char) => {
-    // console.log(char);
+  const charList = characters.map((char) => {
     return (
       <CharacterIcon
+        key={char}
         img={require(`../../images/${char}.jpg`).default}
         name={char}
+        found={isFound}
       />
     );
   });
 
-  return <CharactersContainer>{content}</CharactersContainer>;
+  return <CharactersContainer>{charList}</CharactersContainer>;
 };
 
 const CharactersContainer = styled.div`
