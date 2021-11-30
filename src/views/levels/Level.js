@@ -6,7 +6,7 @@ import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
-import { getClickCoords } from "./LevelUtils";
+import { getClickCoords, showMenu } from "./LevelUtils";
 
 const Level = (props) => {
   // Hooks
@@ -38,23 +38,6 @@ const Level = (props) => {
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
-  const showMenu = (coords) => {
-    const board = document.querySelector("#board");
-    const { left, top, right, bottom } = board.getBoundingClientRect();
-
-    // console.log(left, top, right, bottom);
-
-    if (
-      coords[0] >= left &&
-      coords[0] <= right + window.scrollX &&
-      coords[1] >= top &&
-      coords[1] <= bottom + window.scrollY
-    ) {
-      // console.log("within bounds");
-      setHidden(true);
-    } else setHidden(false);
-  };
-
   const clickHandler = (e) => {
     const xCoor = e.clientX + window.scrollX;
     const yCoor = e.clientY + window.scrollY;
@@ -62,8 +45,7 @@ const Level = (props) => {
     const click = [xCoor, yCoor];
     setClickCoords(getClickCoords(click));
     setMenuPosition(click);
-
-    showMenu(click);
+    setHidden(showMenu(click));
   };
 
   console.log("clicked", clickCoords);

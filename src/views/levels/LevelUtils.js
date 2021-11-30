@@ -3,8 +3,8 @@ const getClickCoords = (coords) => {
   const { left, top, width, height } = board.getBoundingClientRect();
 
   // Click coords normalized to image top left
-  const normX = coords[0] - left;
-  const normY = coords[1] - top;
+  const normX = coords[0] - left - window.scrollX;
+  const normY = coords[1] - top - window.scrollY;
 
   // Convert coords to fraction of img dimensions
   const ratioX = normX / width;
@@ -21,4 +21,20 @@ const getClickCoords = (coords) => {
   return [adjustX, adjustY];
 };
 
-export { getClickCoords };
+const showMenu = (coords) => {
+  const board = document.querySelector("#board");
+  const { left, top, right, bottom } = board.getBoundingClientRect();
+
+  // console.log(left, top, right, bottom);
+
+  if (
+    coords[0] >= left &&
+    coords[0] <= right + window.scrollX &&
+    coords[1] >= top &&
+    coords[1] <= bottom + window.scrollY
+  ) {
+    return true;
+  } else return false;
+};
+
+export { getClickCoords, showMenu };
