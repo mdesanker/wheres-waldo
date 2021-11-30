@@ -1,10 +1,10 @@
-const getClickCoords = (xCoor, yCoor) => {
+const getClickCoords = (coords) => {
   const board = document.querySelector("#board");
   const { left, top, width, height } = board.getBoundingClientRect();
 
   // Click coords normalized to image top left
-  const normX = xCoor - left;
-  const normY = yCoor - top;
+  const normX = coords[0] - left;
+  const normY = coords[1] - top;
 
   // Convert coords to fraction of img dimensions
   const ratioX = normX / width;

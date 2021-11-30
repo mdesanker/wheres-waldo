@@ -38,17 +38,36 @@ const Level = (props) => {
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
-  const clickHandler = (e) => {
-    setClickCoords(getClickCoords(e.clientX, e.clientY));
+  const showMenu = (coords) => {
+    const board = document.querySelector("#board");
+    const { left, top, right, bottom } = board.getBoundingClientRect();
 
-    setMenuPosition([e.clientX, e.clientY]);
+    // console.log(left, top, right, bottom);
+
+    if (
+      coords[0] >= left &&
+      coords[0] <= right &&
+      coords[1] >= top &&
+      coords[1] <= bottom
+    ) {
+      // console.log("within bounds");
+      setHidden(true);
+    } else setHidden(false);
   };
 
-  // console.log(clickCoords);
+  const clickHandler = (e) => {
+    const click = [e.clientX, e.clientY];
+    setClickCoords(getClickCoords(click));
+    setMenuPosition(click);
+
+    showMenu(click);
+  };
+
+  console.log("clicked", clickCoords);
 
   return (
     <LevelContainer onClick={clickHandler}>
-      <Menu chars={characters} position={menuPosition} show={menuIsShowing} />
+      <Menu chars={characters} position={menuPosition} show={hidden} />
       <Characters chars={characters} />
       <Map src={image} id="board" />
 
