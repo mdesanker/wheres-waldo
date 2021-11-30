@@ -2,7 +2,7 @@ import styled from "styled-components";
 import capitalize from "../utils/Capitalize";
 
 const Menu = (props) => {
-  console.log(props.chars);
+  // console.log(props.chars);
 
   const content = props.chars.map((char) => {
     return <MenuItem>{capitalize(char)}</MenuItem>;
@@ -35,14 +35,14 @@ const MenuContainer = styled.div`
   width: 100px;
   display: flex;
   flex-direction: column;
+  margin: 0;
 
-  display: ${(props) => (props.vis ? "block" : "none")};
+  // display: ${(props) => (props.vis ? "block" : "none")};
 
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   background-color: #f1f1f1;
 
-  transform-origin: top left;
   transform: translate(${(props) => `${props.pos[0]}px, ${props.pos[1]}px`});
 `;
 
