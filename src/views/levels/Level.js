@@ -12,6 +12,7 @@ const Level = (props) => {
 
   const [level, setLevel] = useState({});
   const [hidden, setHidden] = useState(false);
+  const [menuIsShowing, setMenusIsShowing] = useState(false);
 
   const [currentClick, setCurrentClick] = useState([]);
 
@@ -86,16 +87,20 @@ const Level = (props) => {
     // ];
 
     const map = document.querySelector(`#map-${level.id}`);
-    const { left, top, right, bottom } = map.getBoundingClientRect();
+    const { left, top, right, bottom, width, height } =
+      map.getBoundingClientRect();
+    console.log(map.getBoundingClientRect());
 
     console.log("top", top);
     console.log("left", left);
 
-    // const calcX = (userX - left) / (right - left);
-    // const calcY = (userY - top) / (bottom - top);
+    // Convert coords to fraction of image
+    // const calcX = (userX - left) / width;
+    // const calcY = (userY - top) / height;
 
-    const calcX = userX - left;
-    const calcY = userY - top;
+    // Subtract offset (position of map on screen)
+    const calcX = userX - left + 100;
+    const calcY = userY - top + 100;
 
     const coords = [
       Number.parseFloat(calcX.toFixed(3)),
@@ -104,6 +109,11 @@ const Level = (props) => {
     console.log(coords);
 
     setCurrentClick(coords);
+    showMenu();
+  };
+
+  const showMenu = () => {
+    setMenusIsShowing(menuIsShowing === false ? true : false);
   };
 
   // TODO: write function to check if objectives clicked
@@ -116,7 +126,7 @@ const Level = (props) => {
 
   return (
     <LevelContainer>
-      <Menu position={currentClick} />
+      <Menu position={currentClick} show={menuIsShowing} />
       <Characters chars={level.objectives} />
       <Map src={image} onClick={clickHandler} id={`map-${level.id}`} />
 

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Menu = (props) => {
-  console.log(props.position);
-  return <MenuContainer pos={props.position}></MenuContainer>;
+  console.log(props.show);
+  return <MenuContainer pos={props.position} vis={props.show}></MenuContainer>;
 };
 
 const MenuContainer = styled.div`
@@ -12,10 +12,13 @@ const MenuContainer = styled.div`
   width: 100px;
   height: 100px;
 
+  display: ${(props) => (props.vis ? "block" : "none")};
+
   border-radius: 5px;
   border: 1px solid #e5e5e5;
   background-color: #f1f1f1;
 
+  transform-origin: top left;
   transform: translate(${(props) => `${props.pos[0]}px, ${props.pos[1]}px`});
 `;
 
