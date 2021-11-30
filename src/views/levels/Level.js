@@ -46,9 +46,9 @@ const Level = (props) => {
 
     if (
       coords[0] >= left &&
-      coords[0] <= right &&
+      coords[0] <= right + window.scrollX &&
       coords[1] >= top &&
-      coords[1] <= bottom
+      coords[1] <= bottom + window.scrollY
     ) {
       // console.log("within bounds");
       setHidden(true);
@@ -56,7 +56,10 @@ const Level = (props) => {
   };
 
   const clickHandler = (e) => {
-    const click = [e.clientX, e.clientY];
+    const xCoor = e.clientX + window.scrollX;
+    const yCoor = e.clientY + window.scrollY;
+
+    const click = [xCoor, yCoor];
     setClickCoords(getClickCoords(click));
     setMenuPosition(click);
 
