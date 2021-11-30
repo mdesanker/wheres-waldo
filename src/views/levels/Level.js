@@ -113,11 +113,24 @@ const Level = (props) => {
     console.log(coords);
 
     setCurrentClick(coords);
-    showMenu();
+    // showMenuHandler();
+  };
+
+  const levelClickHandler = (e) => {
+    console.log(e.target);
+    if (e.target === document.querySelector(`#map-${level.id}`)) {
+      showMenu();
+    } else {
+      hideMenu();
+    }
   };
 
   const showMenu = () => {
-    setMenusIsShowing(menuIsShowing === false ? true : false);
+    setMenusIsShowing(true);
+  };
+
+  const hideMenu = () => {
+    setMenusIsShowing(false);
   };
 
   // TODO: write function to check if objectives clicked
@@ -129,10 +142,12 @@ const Level = (props) => {
   // console.log("click", currentClick);
 
   return (
-    <LevelContainer>
+    <LevelContainer onClick={levelClickHandler}>
       <Menu chars={characters} position={currentClick} show={menuIsShowing} />
+      {/* <Menu chars={characters} position={currentClick} /> */}
       <Characters chars={characters} />
-      <Map src={image} onClick={clickHandler} id={`map-${level.id}`} />
+      {/* <Map src={image} onClick={clickHandler} id={`map-${level.id}`} /> */}
+      <Map src={image} id={`map-${level.id}`} />
 
       <Link to="/wheres-waldo">
         <Button>Return Home</Button>
