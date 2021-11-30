@@ -6,16 +6,17 @@ import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
+import { setClickCoordsHandler } from "./LevelUtils";
 
 const Level = (props) => {
+  // Hooks
   const { id } = useParams();
 
   const [level, setLevel] = useState({});
   const [hidden, setHidden] = useState(false);
   const [menuIsShowing, setMenusIsShowing] = useState(true);
   const [characters, setCharacters] = useState([]);
-
-  const [currentClick, setCurrentClick] = useState([]);
+  const [clickCoords, setClickCoords] = useState([]);
 
   useEffect(() => {
     setLevel(levelData[id - 1]);
@@ -36,36 +37,11 @@ const Level = (props) => {
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
-  const levelClickHandler = (e) => {
-    const board = document.querySelector("#board");
-    const { left, top, width, height } = board.getBoundingClientRect();
-
-    // Click coords normalized to image top left
-    const clickX = e.clientX - left;
-    const clickY = e.clientY - top;
-
-    // Convert coords to fraction of img dimensions
-    const ratioX = clickX / width;
-    const ratioY = clickY / height;
-
-    // Original image dimensions
-    const originalX = 1920;
-    const originalY = 1080;
-
-    // Convert coords to position on original img
-    const adjustX = ratioX * originalX;
-    const adjustY = ratioY * originalY;
-
-    console.log(adjustX, adjustY);
+  const clickHandler = (e) => {
+    setClickCoords(setClickCoordsHandler(e.clientX, e.clientY));
   };
 
-  const showMenu = () => {
-    setMenusIsShowing(true);
-  };
-
-  const hideMenu = () => {
-    setMenusIsShowing(false);
-  };
+  console.log(clickCoords);
 
   // TODO: write function to check if objectives clicked
 
@@ -76,10 +52,9 @@ const Level = (props) => {
   // console.log("click", currentClick);
 
   return (
-    <LevelContainer onClick={levelClickHandler}>
-      <Menu chars={characters} position={currentClick} show={menuIsShowing} />
+    <LevelContainer onClick={clickHandler}>
+      <Menu chars={characters} position={clickCoords} show={menuIsShowing} />
       <Characters chars={characters} />
-      {/* <Map src={image} onClick={clickHandler} id={`map-${level.id}`} /> */}
       <Map src={image} id="board" />
 
       <Link to="/wheres-waldo">
