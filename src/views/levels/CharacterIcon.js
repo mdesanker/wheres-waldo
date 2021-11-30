@@ -1,12 +1,8 @@
 import styled from "styled-components";
+import capitalize from "../../utils/Capitalize";
 
 const CharacterIcon = (props) => {
   // console.log(props.found);
-
-  const capitalize = (str) => {
-    const arr = str.toLowerCase().split("");
-    return arr[0].toUpperCase() + arr.slice(1).join("");
-  };
 
   return (
     <Wrapper charFound={props.found}>
