@@ -1,9 +1,20 @@
 import styled from "styled-components";
 
 const Menu = (props) => {
-  console.log(props.show);
-  return <MenuContainer pos={props.position} vis={props.show}></MenuContainer>;
+  console.log(props.chars);
+
+  const content = props.chars.map((char) => {
+    return <button>{char}</button>;
+  });
+
+  return (
+    <MenuContainer pos={props.position} vis={props.show}>
+      {content}
+    </MenuContainer>
+  );
 };
+
+const MenuItem = styled.button``;
 
 const MenuContainer = styled.div`
   position: absolute;

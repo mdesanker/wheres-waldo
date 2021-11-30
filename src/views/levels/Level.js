@@ -13,6 +13,7 @@ const Level = (props) => {
   const [level, setLevel] = useState({});
   const [hidden, setHidden] = useState(false);
   const [menuIsShowing, setMenusIsShowing] = useState(false);
+  const [characters, setCharacters] = useState([]);
 
   const [currentClick, setCurrentClick] = useState([]);
 
@@ -26,8 +27,11 @@ const Level = (props) => {
     setHidden(level.objectives);
   }, [level]);
 
-  // console.log(hidden);
-  // console.log("waldo", hidden.waldo);
+  useEffect(() => {
+    if (level.objectives) {
+      setCharacters(Object.entries(level.objectives).map((char) => char[0]));
+    }
+  }, [level.objectives]);
 
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
@@ -126,8 +130,8 @@ const Level = (props) => {
 
   return (
     <LevelContainer>
-      <Menu position={currentClick} show={menuIsShowing} />
-      <Characters chars={level.objectives} />
+      <Menu chars={characters} position={currentClick} show={menuIsShowing} />
+      <Characters chars={characters} />
       <Map src={image} onClick={clickHandler} id={`map-${level.id}`} />
 
       <Link to="/wheres-waldo">

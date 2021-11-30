@@ -3,16 +3,9 @@ import { useEffect, useState } from "react";
 import CharacterIcon from "./CharacterIcon";
 
 const Characters = (props) => {
-  const [characters, setCharacters] = useState([]);
   const [isFound, setIsFound] = useState(false);
 
-  useEffect(() => {
-    if (props.chars) {
-      setCharacters(Object.entries(props.chars).map((char) => char[0]));
-    }
-  }, [props.chars]);
-
-  const charList = characters.map((char) => {
+  const charList = props.chars.map((char) => {
     return (
       <CharacterIcon
         key={char}
