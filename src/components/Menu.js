@@ -30,8 +30,8 @@ const MenuItem = styled.button`
 
 const MenuContainer = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
+  left: ${(props) => (props.pos ? `${props.pos[0]}px` : 0)};
+  top: ${(props) => (props.pos ? `${props.pos[1]}px` : 0)};
   width: 100px;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const MenuContainer = styled.div`
   border: 1px solid #e5e5e5;
   background-color: #f1f1f1;
 
-  transform: translate(${(props) => `${props.pos[0]}px, ${props.pos[1]}px`});
+  // transform: translate(${(props) => `${props.pos[0]}px, ${props.pos[1]}px`});
 `;
 
 export default Menu;

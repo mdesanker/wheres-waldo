@@ -1,4 +1,4 @@
-const setClickCoordsHandler = (xCoor, yCoor) => {
+const getClickCoords = (xCoor, yCoor) => {
   const board = document.querySelector("#board");
   const { left, top, width, height } = board.getBoundingClientRect();
 
@@ -21,4 +21,4 @@ const setClickCoordsHandler = (xCoor, yCoor) => {
   return [adjustX, adjustY];
 };
 
-export { setClickCoordsHandler };
+export { getClickCoords };
