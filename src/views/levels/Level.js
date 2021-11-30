@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
 import Characters from "./Characters";
+import Menu from "../../components/Menu";
 
 const Level = (props) => {
   const { id } = useParams();
@@ -30,12 +31,7 @@ const Level = (props) => {
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
-  // Get coordinates of waldo objective
-  // const { waldo } = level.objectives;
-  // console.log(waldo);
-
-  // console.log(image);
-
+  // First Gen click handler
   const clickHandler = (e) => {
     // Get coordinates of user click
     const userX = e.clientX;
@@ -89,6 +85,7 @@ const Level = (props) => {
 
   return (
     <LevelContainer>
+      <Menu />
       <Characters chars={level.objectives} />
       <Map src={image} onClick={clickHandler} id={`map-${level.id}`} />
 
