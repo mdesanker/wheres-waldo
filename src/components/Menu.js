@@ -29,9 +29,9 @@ const MenuItem = styled.button`
 `;
 
 const MenuContainer = styled.div`
-  position: fixed;
-  left: ${(props) => (props.pos ? `${props.pos[0]}px` : 0)};
-  top: ${(props) => (props.pos ? `${props.pos[1]}px` : 0)};
+  position: absolute;
+  left: ${(props) => (props.pos ? `${props.pos[0]}%` : 0)};
+  top: ${(props) => (props.pos ? `${props.pos[1]}%` : 0)};
   width: 100px;
   display: flex;
   flex-direction: column;

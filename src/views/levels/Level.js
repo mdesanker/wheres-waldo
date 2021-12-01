@@ -38,39 +38,61 @@ const Level = (props) => {
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
   const clickHandler = (e) => {
-    const xCoor = e.clientX + window.scrollX;
-    const yCoor = e.clientY + window.scrollY;
+    const xCoor = e.clientX;
+    const yCoor = e.clientY;
+
+    const board = document.querySelector("#board");
+    const { left, top, width, height } = board.getBoundingClientRect();
+
+    const ratio = [
+      ((xCoor - left) / width) * 100,
+      ((yCoor - top) / height) * 100,
+    ];
+
+    console.log(ratio);
 
     const click = [xCoor, yCoor];
     setClickCoords(getClickCoords(click));
-    setMenuPosition(click);
+    // setMenuPosition(click);
+    setMenuPosition(ratio);
+
     setHidden(showMenu(click));
   };
 
   console.log("clicked", clickCoords);
 
   return (
-    <LevelContainer onClick={clickHandler}>
-      <Menu chars={characters} position={menuPosition} show={hidden} />
+    <LevelWrapper onClick={clickHandler}>
       <Characters chars={characters} />
-      <Map src={image} id="board" />
+      <BoardContainer>
+        <Menu chars={characters} position={menuPosition} show={hidden} />
+        <Map src={image} id="board" />
+      </BoardContainer>
 
       <Link to="/wheres-waldo">
         <Button>Return Home</Button>
       </Link>
-    </LevelContainer>
+    </LevelWrapper>
   );
 };
 
 const Map = styled.img`
-  width: 80%;
+  width: 100%;
   height: auto;
   min-width: 500px;
 `;
 
-const LevelContainer = styled.main`
-  padding: 50px 0;
+const BoardContainer = styled.div`
+  position: relative;
   margin: 0 auto;
+  width: 80%;
+  // height: auto;
+  min-width: 500px;
+`;
+
+const LevelWrapper = styled.main`
+  padding: 50px 0;
+  // margin: 0 auto;
   width: 100%;
   // max-width: 1200px;
   display: flex;

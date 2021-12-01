@@ -3,8 +3,8 @@ const getClickCoords = (coords) => {
   const { left, top, width, height } = board.getBoundingClientRect();
 
   // Click coords normalized to image top left
-  const normX = coords[0] - left - window.scrollX;
-  const normY = coords[1] - top - window.scrollY;
+  const normX = coords[0] - left;
+  const normY = coords[1] - top;
 
   // Convert coords to fraction of img dimensions
   const ratioX = normX / width;
