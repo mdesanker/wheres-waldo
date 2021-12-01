@@ -38,28 +38,20 @@ const Level = (props) => {
   const image = require(`../../images/waldo-${id}.jpg`).default;
 
   const clickHandler = (e) => {
-    const xCoor = e.clientX;
-    const yCoor = e.clientY;
-
+    // Get board dimensions at time of click
     const board = document.querySelector("#board");
     const { left, top, width, height } = board.getBoundingClientRect();
 
-    const ratio = [
-      ((xCoor - left) / width) * 100,
-      ((yCoor - top) / height) * 100,
-    ];
+    // Fractional coords normalized to top left board
+    const xFrac = (e.clientX - left) / width;
+    const yFrac = (e.clientY - top) / height;
 
-    console.log(ratio);
-
-    const click = [xCoor, yCoor];
-    setClickCoords(getClickCoords(click));
-    // setMenuPosition(click);
-    setMenuPosition(ratio);
-
-    setHidden(showMenu(click));
+    setClickCoords(getClickCoords([xFrac, yFrac]));
+    setMenuPosition([xFrac, yFrac]);
+    setHidden(showMenu([xFrac, yFrac]));
   };
 
-  console.log("clicked", clickCoords);
+  // console.log("clicked", clickCoords);
 
   return (
     <LevelWrapper onClick={clickHandler}>
@@ -83,18 +75,16 @@ const Map = styled.img`
 `;
 
 const BoardContainer = styled.div`
+  /* position relative for menu placement */
   position: relative;
   margin: 0 auto;
   width: 80%;
-  // height: auto;
   min-width: 500px;
 `;
 
 const LevelWrapper = styled.main`
   padding: 50px 0;
-  // margin: 0 auto;
   width: 100%;
-  // max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
