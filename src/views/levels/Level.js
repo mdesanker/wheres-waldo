@@ -15,7 +15,7 @@ const Level = (props) => {
   const [clickCoords, setClickCoords] = useState([]);
   const [menuPosition, setMenuPosition] = useState([0, 0]);
   const [level, setLevel] = useState({});
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {

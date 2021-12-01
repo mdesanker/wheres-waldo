@@ -37,7 +37,7 @@ const MenuContainer = styled.div`
   flex-direction: column;
   margin: 0;
 
-  display: ${(props) => (props.vis ? "block" : "none")};
+  display: ${(props) => (props.vis ? "none" : "block")};
 
   border-radius: 5px;
   border: 1px solid #e5e5e5;

@@ -33,8 +33,8 @@ const showMenu = (coords) => {
     coords[1] >= top &&
     coords[1] <= bottom + window.scrollY
   ) {
-    return true;
-  } else return false;
+    return false;
+  } else return true;
 };
 
 export { getClickCoords, showMenu };
