@@ -5,7 +5,7 @@ const Menu = (props) => {
   // console.log(props.chars);
 
   const content = props.chars.map((char) => {
-    return <MenuItem>{capitalize(char)}</MenuItem>;
+    return <MenuItem key={char}>{capitalize(char)}</MenuItem>;
   });
 
   return (

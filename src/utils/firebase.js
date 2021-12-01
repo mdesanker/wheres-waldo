@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhnGdN-nfbf0AyplaJtAuqHzKYK6cOtYc",
@@ -16,5 +16,4 @@ initializeApp(firebaseConfig);
 // initialize services
 const database = getFirestore();
 
-// collection references
-// const imgRef = collection(database, "images");
+export default database;
