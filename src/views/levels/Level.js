@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
 import { getClickCoords, showMenu } from "./LevelUtils";
+import database from "../../utils/firebase";
+import { collection, where, query, getDocs } from "@firebase/firestore";
 
 const Level = (props) => {
   // Hooks
@@ -33,6 +35,19 @@ const Level = (props) => {
       setCharacters(Object.entries(level.objectives).map((char) => char[0]));
     }
   }, [level.objectives]);
+
+  useEffect(() => {
+    const fetchLevel = async () => {
+      const levelsRef = collection(database, "levels");
+      const q = query(levelsRef, where("name", "==", `level-${id}`)); // Query desired level
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, "=>", doc.data());
+      });
+    };
+
+    fetchLevel();
+  }, []);
 
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
