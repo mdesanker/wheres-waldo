@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import Button from "../../components/Button";
-import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
@@ -14,6 +13,7 @@ const Level = (props) => {
 
   const [levelInfo, setLevelInfo] = useState({});
   const [click, setClick] = useState([]);
+  const [menuHidden, setMenuHidden] = useState(true);
 
   const [characters, setCharacters] = useState([]);
 
@@ -49,16 +49,25 @@ const Level = (props) => {
     const x = (e.clientX - left) / width;
     const y = (e.clientY - top) / height;
 
-    setClick([x, y]);
+    // setClick([x, y]);
+
+    if (e.target.tagName.toLowerCase() === "img") {
+      setMenuHidden(false);
+      setClick([x, y]);
+    } else if (e.target.tagName.toLowerCase() === "main") {
+      setMenuHidden(true);
+    }
   };
 
   console.log(click);
+
+  console.log(menuHidden);
 
   return (
     <LevelWrapper onClick={clickHandler}>
       <Characters chars={characters} />
       <BoardContainer>
-        <Menu chars={characters} position={click} />
+        <Menu chars={characters} position={click} vis={menuHidden} />
         <Map src={image} id="board" />
       </BoardContainer>
 
