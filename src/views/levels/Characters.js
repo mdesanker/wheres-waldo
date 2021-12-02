@@ -3,7 +3,7 @@ import { useState } from "react";
 import CharacterIcon from "./CharacterIcon";
 
 const Characters = (props) => {
-  const [isFound, setIsFound] = useState(false);
+  // const [isFound, setIsFound] = useState(false);
 
   const charList = props.chars.map((char) => {
     return (
@@ -11,7 +11,7 @@ const Characters = (props) => {
         key={char}
         img={require(`../../images/${char}.jpg`).default}
         name={char}
-        found={isFound}
+        found={props.found.includes(char) ? true : false}
       />
     );
   });

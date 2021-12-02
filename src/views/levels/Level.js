@@ -80,7 +80,7 @@ const Level = (props) => {
 
   return (
     <LevelWrapper onClick={clickHandler}>
-      <Characters chars={characters} />
+      <Characters chars={characters} found={found} />
       <BoardContainer>
         <Menu
           chars={characters}

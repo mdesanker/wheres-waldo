@@ -2,7 +2,7 @@ import styled from "styled-components";
 import capitalize from "../../utils/Capitalize";
 
 const CharacterIcon = (props) => {
-  // console.log(props.found);
+  console.log("props", props);
 
   return (
     <Wrapper charFound={props.found}>
