@@ -6,7 +6,6 @@ import levelData from "../../utils/levels.json";
 import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
-import { getClickCoords, showMenu } from "./LevelUtils";
 import database from "../../utils/firebase";
 import { collection, where, query, getDocs } from "@firebase/firestore";
 
@@ -16,7 +15,6 @@ const Level = (props) => {
   const [levelInfo, setLevelInfo] = useState({});
   const [click, setClick] = useState([]);
 
-  const [level, setLevel] = useState({});
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -31,10 +29,6 @@ const Level = (props) => {
     };
 
     fetchLevel();
-  }, []);
-
-  useEffect(() => {
-    setLevel(levelData[id - 1]);
   }, []);
 
   useEffect(() => {
@@ -57,6 +51,8 @@ const Level = (props) => {
 
     setClick([x, y]);
   };
+
+  console.log(click);
 
   return (
     <LevelWrapper onClick={clickHandler}>
