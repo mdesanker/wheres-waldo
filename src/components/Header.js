@@ -42,7 +42,6 @@ const HeaderContainer = styled.header`
 
   background-color: white;
   border-bottom: 1px solid #e5e5e5;
-  // border: 1px solid red;
 `;
 
 export default Header;
