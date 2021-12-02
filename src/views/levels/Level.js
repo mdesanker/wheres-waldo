@@ -64,20 +64,14 @@ const Level = (props) => {
     // console.log(name);
     setMenuHidden(true);
 
-    console.log(
+    if (
       Math.abs(click[0] - levelInfo.objectives[name][0]) < 0.02 &&
-        Math.abs(click[1] - levelInfo.objectives[name][1]) < 0.02
-    );
-
-    // if (
-    //   Math.abs(click[0] - levelInfo.objectives[name][0]) < 0.02 &&
-    //   Math.abs(click[1] - levelInfo.objectives[name][1]) < 0.02
-    // ) {
-    //   setFound((prevState) => {
-    //     console.log(name);
-    //     return prevState.push(name);
-    //   });
-    // }
+      Math.abs(click[1] - levelInfo.objectives[name][1]) < 0.02
+    ) {
+      setFound((prevState) => {
+        return [...prevState, name];
+      });
+    }
   };
 
   // console.log(click);
