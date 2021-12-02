@@ -1,15 +1,27 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import capitalize from "../utils/Capitalize";
 
 const Menu = (props) => {
-  // console.log(props.chars);
+  const [hidden, setHidden] = useState(true);
+
+  useEffect(() => {
+    setHidden(
+      props.position[0] >= 0 &&
+        props.position[0] <= 1 &&
+        props.position[1] >= 0 &&
+        props.position[1] <= 1
+        ? false
+        : true
+    );
+  }, [props.position]);
 
   const content = props.chars.map((char) => {
     return <MenuItem key={char}>{capitalize(char)}</MenuItem>;
   });
 
   return (
-    <MenuContainer pos={props.position} vis={props.show}>
+    <MenuContainer pos={props.position} vis={hidden}>
       {content}
     </MenuContainer>
   );

@@ -14,11 +14,9 @@ const Level = (props) => {
   const { id } = useParams();
 
   const [levelInfo, setLevelInfo] = useState({});
+  const [click, setClick] = useState([]);
 
-  const [clickCoords, setClickCoords] = useState([]);
-  const [menuPosition, setMenuPosition] = useState([0, 0]);
   const [level, setLevel] = useState({});
-  const [hidden, setHidden] = useState(true);
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -39,17 +37,11 @@ const Level = (props) => {
     setLevel(levelData[id - 1]);
   }, []);
 
-  // console.log(level);
-
   useEffect(() => {
-    setHidden(level.objectives);
-  }, [level]);
-
-  useEffect(() => {
-    if (level.objectives) {
-      setCharacters(Object.entries(level.objectives).map((char) => char[0]));
+    if (levelInfo.objectives) {
+      setCharacters(Object.keys(levelInfo.objectives));
     }
-  }, [level.objectives]);
+  }, [levelInfo.objectives]);
 
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
@@ -60,21 +52,17 @@ const Level = (props) => {
     const { left, top, width, height } = board.getBoundingClientRect();
 
     // Fractional coords normalized to top left board
-    const xFrac = (e.clientX - left) / width;
-    const yFrac = (e.clientY - top) / height;
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
 
-    setClickCoords(getClickCoords([xFrac, yFrac]));
-    setMenuPosition([xFrac, yFrac]);
-    setHidden(showMenu([xFrac, yFrac]));
+    setClick([x, y]);
   };
-
-  // console.log("clicked", clickCoords);
 
   return (
     <LevelWrapper onClick={clickHandler}>
       <Characters chars={characters} />
       <BoardContainer>
-        <Menu chars={characters} position={menuPosition} show={hidden} />
+        <Menu chars={characters} position={click} />
         <Map src={image} id="board" />
       </BoardContainer>
 
