@@ -11,14 +11,29 @@ import database from "../../utils/firebase";
 import { collection, where, query, getDocs } from "@firebase/firestore";
 
 const Level = (props) => {
-  // Hooks
   const { id } = useParams();
+
+  const [levelInfo, setLevelInfo] = useState({});
 
   const [clickCoords, setClickCoords] = useState([]);
   const [menuPosition, setMenuPosition] = useState([0, 0]);
   const [level, setLevel] = useState({});
   const [hidden, setHidden] = useState(true);
   const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    const fetchLevel = async () => {
+      const levelsRef = collection(database, "levels");
+      const q = query(levelsRef, where("name", "==", `level-${id}`));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        setLevelInfo(doc.data());
+      });
+    };
+
+    fetchLevel();
+  }, []);
 
   useEffect(() => {
     setLevel(levelData[id - 1]);
@@ -35,19 +50,6 @@ const Level = (props) => {
       setCharacters(Object.entries(level.objectives).map((char) => char[0]));
     }
   }, [level.objectives]);
-
-  useEffect(() => {
-    const fetchLevel = async () => {
-      const levelsRef = collection(database, "levels");
-      const q = query(levelsRef, where("name", "==", `level-${id}`)); // Query desired level
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, "=>", doc.data());
-      });
-    };
-
-    fetchLevel();
-  }, []);
 
   // Get relevant image for level selected
   const image = require(`../../images/waldo-${id}.jpg`).default;
