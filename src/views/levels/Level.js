@@ -59,15 +59,22 @@ const Level = (props) => {
     }
   };
 
-  console.log(click);
+  const menuItemClickHandler = (e) => {
+    console.log(e.target.id);
+  };
 
-  console.log(menuHidden);
+  // console.log(click);
 
   return (
     <LevelWrapper onClick={clickHandler}>
       <Characters chars={characters} />
       <BoardContainer>
-        <Menu chars={characters} position={click} vis={menuHidden} />
+        <Menu
+          chars={characters}
+          position={click}
+          vis={menuHidden}
+          onItemClick={menuItemClickHandler}
+        />
         <Map src={image} id="board" />
       </BoardContainer>
 

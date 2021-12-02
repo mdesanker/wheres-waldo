@@ -3,7 +3,7 @@ import styled from "styled-components";
 import capitalize from "../utils/Capitalize";
 
 const Menu = (props) => {
-  console.log("props", props.vis);
+  // console.log("props", props.vis);
   // const [hidden, setHidden] = useState(true);
 
   // useEffect(() => {
@@ -18,7 +18,11 @@ const Menu = (props) => {
   // }, [props.position]);
 
   const content = props.chars.map((char) => {
-    return <MenuItem key={char}>{capitalize(char)}</MenuItem>;
+    return (
+      <MenuItem key={char} id={char} onClick={props.onItemClick}>
+        {capitalize(char)}
+      </MenuItem>
+    );
   });
 
   return (
