@@ -74,9 +74,17 @@ const Level = (props) => {
     }
   };
 
+  useEffect(() => {
+    // console.log("render");
+    if (found.length === characters.length) {
+      // Game over logic here
+      console.log("game over");
+    }
+  }, [found]);
+
   // console.log(click);
 
-  console.log(found);
+  // console.log(found);
 
   return (
     <LevelWrapper onClick={clickHandler}>

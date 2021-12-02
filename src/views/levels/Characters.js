@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import { useState } from "react";
 import CharacterIcon from "./CharacterIcon";
 
 const Characters = (props) => {
-  // const [isFound, setIsFound] = useState(false);
-
   const charList = props.chars.map((char) => {
     return (
       <CharacterIcon
