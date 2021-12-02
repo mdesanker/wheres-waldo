@@ -9,21 +9,21 @@ import database from "../../utils/firebase";
 import { collection, where, query, getDocs } from "@firebase/firestore";
 
 const Level = (props) => {
-  const { id } = useParams();
+  const { id: name } = useParams();
 
   const [levelInfo, setLevelInfo] = useState({});
   const [click, setClick] = useState([]);
   const [menuHidden, setMenuHidden] = useState(true);
-
   const [characters, setCharacters] = useState([]);
+  const [found, setFound] = useState([]);
 
   useEffect(() => {
     const fetchLevel = async () => {
       const levelsRef = collection(database, "levels");
-      const q = query(levelsRef, where("name", "==", `level-${id}`));
+      const q = query(levelsRef, where("name", "==", `level-${name}`));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        // console.log(doc.data());
         setLevelInfo(doc.data());
       });
     };
@@ -38,7 +38,7 @@ const Level = (props) => {
   }, [levelInfo.objectives]);
 
   // Get relevant image for level selected
-  const image = require(`../../images/waldo-${id}.jpg`).default;
+  const image = require(`../../images/waldo-${name}.jpg`).default;
 
   const clickHandler = (e) => {
     // Get board dimensions at time of click
@@ -60,10 +60,29 @@ const Level = (props) => {
   };
 
   const menuItemClickHandler = (e) => {
-    console.log(e.target.id);
+    const { name } = e.target;
+    // console.log(name);
+    setMenuHidden(true);
+
+    console.log(
+      Math.abs(click[0] - levelInfo.objectives[name][0]) < 0.02 &&
+        Math.abs(click[1] - levelInfo.objectives[name][1]) < 0.02
+    );
+
+    // if (
+    //   Math.abs(click[0] - levelInfo.objectives[name][0]) < 0.02 &&
+    //   Math.abs(click[1] - levelInfo.objectives[name][1]) < 0.02
+    // ) {
+    //   setFound((prevState) => {
+    //     console.log(name);
+    //     return prevState.push(name);
+    //   });
+    // }
   };
 
   // console.log(click);
+
+  console.log(found);
 
   return (
     <LevelWrapper onClick={clickHandler}>

@@ -19,7 +19,7 @@ const Menu = (props) => {
 
   const content = props.chars.map((char) => {
     return (
-      <MenuItem key={char} id={char} onClick={props.onItemClick}>
+      <MenuItem key={char} name={char} onClick={props.onItemClick}>
         {capitalize(char)}
       </MenuItem>
     );
