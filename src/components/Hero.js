@@ -1,9 +1,48 @@
 import styled from "styled-components";
 import waldoStamp from "../images/waldo-stamp.jpg";
+import Button from "./Button";
 
 const Hero = () => {
-  return <HeroWrapper>Where's Waldo</HeroWrapper>;
+  return (
+    <HeroWrapper>
+      <Logo>
+        <img src={waldoStamp} alt="waldo-stamp" />
+        <TitleWrapper>
+          <Title>
+            <h1>Where's</h1>
+            <h1>Waldo?</h1>
+          </Title>
+          <Button>Leaderboard</Button>
+        </TitleWrapper>
+      </Logo>
+    </HeroWrapper>
+  );
 };
+
+const Title = styled.div`
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: blue;
+
+  & h1:nth-child(2) {
+    color: red;
+  }
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+const Logo = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-evenly;
+`;
 
 const HeroWrapper = styled.header`
   width: 100%;
@@ -14,7 +53,7 @@ const HeroWrapper = styled.header`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid red;
+  border-bottom: 1px solid #e5e5e5;
 `;
 
 export default Hero;
