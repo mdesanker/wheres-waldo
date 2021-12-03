@@ -27,10 +27,10 @@ const Level = () => {
 
     console.log(x, y);
 
-    if (e.target.tagName.toLowerCase() === "img") {
+    if (e.target.id === "board") {
       setMenuHidden(false);
       setClick([x, y]);
-    } else if (e.target.tagName.toLowerCase() === "main") {
+    } else if (e.target.id !== "board") {
       setMenuHidden(true);
     }
   };
