@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
-import Button from "../../components/Button";
-import { Link } from "react-router-dom";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
 import database from "../../utils/firebase";
