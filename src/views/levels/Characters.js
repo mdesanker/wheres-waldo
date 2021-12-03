@@ -18,10 +18,13 @@ const Characters = (props) => {
 
 const CharactersContainer = styled.div`
   width: 100%;
-  height: 70px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+
+  border-bottom: 1px solid #f1f1f1;
 `;
 
 export default Characters;

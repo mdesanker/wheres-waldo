@@ -114,18 +114,18 @@ const Map = styled.img`
 const BoardContainer = styled.div`
   /* position relative for menu placement */
   position: relative;
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 80%;
   min-width: 500px;
 `;
 
 const LevelWrapper = styled.main`
-  padding: 50px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // padding-bottom: 7rem;
 `;
 
 export default Level;
