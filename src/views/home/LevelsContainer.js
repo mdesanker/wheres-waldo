@@ -10,7 +10,7 @@ const LevelsContainer = (props) => {
   const levels = levelData;
 
   const ctx = useContext(LevelContext);
-  // console.log(ctx.levels);
+  console.log(ctx.levels);
 
   // Rewrite
   // const importAll = (r) => {

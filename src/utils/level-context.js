@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import database from "../utils/firebase";
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  orderBy,
-} from "@firebase/firestore";
+import { collection, query, getDocs, orderBy } from "@firebase/firestore";
 
 const LevelContext = React.createContext({
   levels: [],

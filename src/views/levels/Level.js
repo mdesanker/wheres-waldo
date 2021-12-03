@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
 import database from "../../utils/firebase";
 import { collection, where, query, getDocs } from "@firebase/firestore";
+import LevelContext from "../../utils/level-context";
 
 const Level = (props) => {
-  const { id: name } = useParams();
+  const { id } = useParams();
+  console.log("id", id);
+
+  const ctx = useContext(LevelContext);
+  const currentLevel = ctx.levels.find((level) => {
+    return level.id.toString() === id;
+  });
+  console.log(currentLevel);
 
   const [levelInfo, setLevelInfo] = useState({});
   const [click, setClick] = useState([]);
@@ -18,7 +26,7 @@ const Level = (props) => {
   useEffect(() => {
     const fetchLevel = async () => {
       const levelsRef = collection(database, "levels");
-      const q = query(levelsRef, where("name", "==", `level-${name}`));
+      const q = query(levelsRef, where("id", "==", `level-${id}`));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         setLevelInfo(doc.data());
@@ -35,7 +43,7 @@ const Level = (props) => {
   }, [levelInfo.objectives]);
 
   // Get relevant image for level selected
-  const image = require(`../../images/waldo-${name}.jpg`).default;
+  // const image = require(`../../images/waldo-${name}.jpg`).default;
 
   const clickHandler = (e) => {
     // Get board dimensions at time of click
@@ -93,7 +101,8 @@ const Level = (props) => {
           vis={menuHidden}
           onItemClick={menuItemClickHandler}
         />
-        <Map src={image} id="board" />
+        <Map id="board" />
+        {/* <Map src={image} id="board" /> */}
       </BoardContainer>
     </LevelWrapper>
   );
