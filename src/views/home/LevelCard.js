@@ -2,13 +2,19 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const LevelCard = (props) => {
-  // console.log(props.image);
+  // console.log(props.level);
+
+  const { level } = props;
+  console.log(level);
+
+  // Get relevant image for level selected
+  const image = require(`../../images/${level.name}.jpg`).default;
 
   return (
     <CardContainer>
-      <NavLink to={`/wheres-waldo/level/${props.level.id}`}>
-        <ImageContainer src={props.image} alt={`${props.level.name} map`} />
-        <Label>{props.level.name}</Label>
+      <NavLink to={`/wheres-waldo/level/${level.id}`}>
+        <ImageContainer src={image} alt={`${props.level.name} map`} />
+        <Label>{level.name}</Label>
       </NavLink>
     </CardContainer>
   );

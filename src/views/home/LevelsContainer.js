@@ -38,13 +38,7 @@ const LevelsContainer = (props) => {
   // });
 
   const content = ctx.levels.map((level) => {
-    return (
-      <LevelCard
-        key={level.id}
-        level={level}
-        // image={images[level.image].default}
-      />
-    );
+    return <LevelCard key={level.id} level={level} />;
   });
 
   return <LevelsWrapper>{content}</LevelsWrapper>;
