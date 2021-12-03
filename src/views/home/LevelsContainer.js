@@ -7,46 +7,42 @@ import { collection, query, where, getDocs } from "@firebase/firestore";
 import LevelContext from "../../utils/level-context";
 
 const LevelsContainer = (props) => {
-  // const [levelInfo, setLevelInfo] = useState([]);
   const levels = levelData;
-
-  // useEffect(() => {
-  //   const fetchLevel = async () => {
-  //     const levelsRef = collection(database, "levels");
-  //     const querySnapshot = await getDocs(levelsRef);
-  //     querySnapshot.forEach((doc) => {
-  //       setLevelInfo(doc.data());
-  //     });
-  //   };
-
-  //   fetchLevel();
-  // }, []);
-
-  // console.log(levelInfo);
 
   const ctx = useContext(LevelContext);
   console.log(ctx.levels);
 
-  const importAll = (r) => {
-    const images = {};
-    r.keys().map((item) => {
-      return (images[item.replace("./", "")] = r(item));
-    });
-    return images;
-  };
+  // Rewrite
+  // const importAll = (r) => {
+  //   const images = {};
+  //   r.keys().map((item) => {
+  //     return (images[item.replace("./", "")] = r(item));
+  //   });
+  //   return images;
+  // };
 
-  const images = importAll(
-    require.context("../../images", false, /\.(png|jpe?g|svg)$/)
-  );
+  // const images = importAll(
+  //   require.context("../../images", false, /\.(png|jpe?g|svg)$/)
+  // );
 
   // console.log(images);
 
-  const content = levels.map((level) => {
+  // const content = levels.map((level) => {
+  //   return (
+  //     <LevelCard
+  //       key={level.id}
+  //       level={level}
+  //       image={images[level.image].default}
+  //     />
+  //   );
+  // });
+
+  const content = ctx.levels.map((level) => {
     return (
       <LevelCard
         key={level.id}
         level={level}
-        image={images[level.image].default}
+        // image={images[level.image].default}
       />
     );
   });

@@ -13,9 +13,12 @@ export const LevelContextProvider = (props) => {
     const fetchLevel = async () => {
       const levelsRef = collection(database, "levels");
       const querySnapshot = await getDocs(levelsRef);
+      let levelsList = [];
       querySnapshot.forEach((doc) => {
-        setLevels(doc.data());
+        levelsList.push(doc.data());
       });
+      // setLevels once list populated
+      setLevels(levelsList);
     };
 
     fetchLevel();
