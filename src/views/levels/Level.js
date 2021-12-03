@@ -11,6 +11,8 @@ const Level = (props) => {
   const { id } = useParams();
   const [currentLevel, setCurrentLevel] = useState();
   const ctx = useContext(LevelContext);
+  // ctx.id = id;
+  console.log(ctx.id);
 
   useEffect(() => {
     setCurrentLevel(ctx.levels.find((level) => level.id.toString() === id));
@@ -19,7 +21,8 @@ const Level = (props) => {
   console.log(currentLevel);
 
   // Get relevant image for level selected
-  const image = require(`../../images/${currentLevel.name}.jpg`).default;
+  const image =
+    currentLevel && require(`../../images/${currentLevel.name}.jpg`).default;
 
   ////////////////////////////////////////////
 

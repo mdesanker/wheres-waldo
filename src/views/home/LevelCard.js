@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import LevelContext from "../../utils/level-context";
 
 const LevelCard = (props) => {
+  const ctx = useContext(LevelContext);
+
   // console.log(props.level);
 
   const { level } = props;
@@ -11,7 +15,7 @@ const LevelCard = (props) => {
   const image = require(`../../images/${level.name}.jpg`).default;
 
   return (
-    <CardContainer>
+    <CardContainer id={level.id} onClick={ctx.cardClickHandler}>
       <NavLink to={`/wheres-waldo/level/${level.id}`}>
         <ImageContainer src={image} alt={`${props.level.name} map`} />
         <Label>{level.name}</Label>
