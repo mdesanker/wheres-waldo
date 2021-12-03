@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import RouterSwitch from "./RouterSwitch";
+import { LevelContextProvider } from "./utils/level-context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <LevelContextProvider>
     <RouterSwitch />
-  </React.StrictMode>,
+  </LevelContextProvider>,
   document.getElementById("root")
 );
