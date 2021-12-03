@@ -5,7 +5,7 @@ const LevelCard = (props) => {
   // console.log(props.level);
 
   const { level } = props;
-  console.log(level);
+  // console.log(level);
 
   // Get relevant image for level selected
   const image = require(`../../images/${level.name}.jpg`).default;
