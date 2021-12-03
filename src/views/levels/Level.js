@@ -97,10 +97,6 @@ const Level = (props) => {
         />
         <Map src={image} id="board" />
       </BoardContainer>
-
-      <Link to="/wheres-waldo">
-        <Button theme={{ background: "red" }}>Back to Menu</Button>
-      </Link>
     </LevelWrapper>
   );
 };

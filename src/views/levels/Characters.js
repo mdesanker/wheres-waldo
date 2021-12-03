@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import CharacterIcon from "./CharacterIcon";
+import { Link } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Characters = (props) => {
   const charList = props.chars.map((char) => {
@@ -13,16 +15,37 @@ const Characters = (props) => {
     );
   });
 
-  return <CharactersContainer>{charList}</CharactersContainer>;
+  return (
+    <Wrapper>
+      <Menu>
+        <CharacterContainer>{charList}</CharacterContainer>
+        <Link to="/wheres-waldo">
+          <Button theme={{ background: "red" }}>Home</Button>
+        </Link>
+      </Menu>
+    </Wrapper>
+  );
 };
 
-const CharactersContainer = styled.div`
+const CharacterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Menu = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+`;
+
+const Wrapper = styled.div`
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 
   border-bottom: 1px solid #f1f1f1;
 `;
