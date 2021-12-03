@@ -40,7 +40,7 @@ const Menu = styled.div`
   margin: 0 auto;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   width: 100%;
   height: auto;
   display: flex;

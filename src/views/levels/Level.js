@@ -121,7 +121,7 @@ const LevelWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
 `;
 
 export default Level;
