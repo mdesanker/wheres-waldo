@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import capitalize from "../utils/Capitalize";
 
@@ -20,7 +19,8 @@ const Menu = (props) => {
 
 const MenuItem = styled.button`
   width: 100px;
-  height: 40px;
+  height: auto;
+  padding: 0.2rem;
   background-color: #f1f1f1;
   border: none;
   font-size: 1rem;
@@ -38,6 +38,7 @@ const MenuContainer = styled.div`
   width: 100px;
   display: flex;
   flex-direction: column;
+  z-index: 100;
 
   display: ${(props) => (props.show ? "none" : "block")};
 

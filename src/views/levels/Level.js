@@ -99,7 +99,7 @@ const Level = (props) => {
       </BoardContainer>
 
       <Link to="/wheres-waldo">
-        <Button>Return Home</Button>
+        <Button theme={{ background: "red" }}>Back to Menu</Button>
       </Link>
     </LevelWrapper>
   );
@@ -125,7 +125,7 @@ const LevelWrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // padding-bottom: 7rem;
+  padding-bottom: 4rem;
 `;
 
 export default Level;

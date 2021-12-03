@@ -13,7 +13,7 @@ const Button = styled.button`
   color: white;
   // background-color: #2a9d8f;
   background-color: ${(props) => props.theme.background};
-  opacity: 0.6;
+  opacity: 0.5;
 
   transition: 200ms all;
 
