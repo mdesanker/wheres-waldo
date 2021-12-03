@@ -4,13 +4,13 @@ import { collection, query, getDocs, orderBy } from "@firebase/firestore";
 
 const LevelContext = React.createContext({
   levels: [],
-  id: "",
+  currentLevel: {},
   cardClickHandler: () => {},
 });
 
 export const LevelContextProvider = (props) => {
   const [levels, setLevels] = useState([]);
-  const [id, setId] = useState();
+  const [currentLevel, setCurrentLevel] = useState();
 
   useEffect(() => {
     const fetchLevel = async () => {
@@ -30,12 +30,16 @@ export const LevelContextProvider = (props) => {
 
   const cardClickHandler = (e) => {
     const { id } = e.target.closest("div");
-    setId(id);
+    setCurrentLevel(levels.find((level) => level.id.toString() === id));
   };
 
   return (
     <LevelContext.Provider
-      value={{ levels: levels, id: id, cardClickHandler: cardClickHandler }}
+      value={{
+        levels: levels,
+        currentLevel: currentLevel,
+        cardClickHandler: cardClickHandler,
+      }}
     >
       {props.children}
     </LevelContext.Provider>

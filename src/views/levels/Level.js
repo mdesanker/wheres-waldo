@@ -10,19 +10,22 @@ import LevelContext from "../../utils/level-context";
 const Level = (props) => {
   const { id } = useParams();
   const [currentLevel, setCurrentLevel] = useState();
+
   const ctx = useContext(LevelContext);
-  // ctx.id = id;
-  console.log(ctx.id);
-
+  console.log(ctx);
   useEffect(() => {
-    setCurrentLevel(ctx.levels.find((level) => level.id.toString() === id));
-  }, [ctx, id]);
+    console.log(ctx.currentLevel);
+  }, []);
 
-  console.log(currentLevel);
+  // useEffect(() => {
+  //   setCurrentLevel(ctx.levels.find((level) => level.id.toString() === id));
+  // }, [ctx, id]);
+
+  // console.log(currentLevel);
 
   // Get relevant image for level selected
-  const image =
-    currentLevel && require(`../../images/${currentLevel.name}.jpg`).default;
+  // const image =
+  //   currentLevel && require(`../../images/${currentLevel.name}.jpg`).default;
 
   ////////////////////////////////////////////
 
@@ -89,7 +92,7 @@ const Level = (props) => {
     // console.log("render");
     if (found.length === characters.length) {
       // Game over logic here
-      console.log("game over");
+      // console.log("game over");
     }
   }, [found]);
 
@@ -107,8 +110,8 @@ const Level = (props) => {
           vis={menuHidden}
           onItemClick={menuItemClickHandler}
         />
-        {/* <Map id="board" /> */}
-        <Map src={image} id="board" />
+        <Map id="board" />
+        {/* <Map src={image} id="board" /> */}
       </BoardContainer>
     </LevelWrapper>
   );
