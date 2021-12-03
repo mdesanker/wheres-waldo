@@ -11,7 +11,6 @@ const RouterSwitch = () => {
     <Router>
       <GlobalStyle />
       <Hero />
-      {/* <Header /> */}
       <Routes>
         <Route path="/wheres-waldo" element={<Home />} />
         <Route path="/wheres-waldo/level/:id" element={<Level />} />

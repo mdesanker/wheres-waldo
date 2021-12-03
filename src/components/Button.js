@@ -11,12 +11,14 @@ const Button = styled.button`
   margin: 1rem;
 
   color: white;
-  background-color: #2a9d8f;
+  // background-color: #2a9d8f;
+  background-color: ${(props) => props.theme.background};
+  opacity: 0.6;
 
   transition: 200ms all;
 
   &:hover {
-    background-color: #264653;
+    opacity: 1;
   }
 `;
 

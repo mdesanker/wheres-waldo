@@ -16,7 +16,7 @@ const LevelCard = (props) => {
 
 const ImageContainer = styled.img`
   width: 100%;
-  height: 200px;
+  height: auto;
 `;
 
 const Label = styled.label`
@@ -28,15 +28,18 @@ const Label = styled.label`
 `;
 
 const CardContainer = styled.div`
-  width: 250px;
-  height: 230px;
-  margin: 1rem;
-
-  border: 1px solid red;
+  width: 32%;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 0 0 5px 5px;
 
   a {
     text-decoration: none;
     color: black;
+  }
+
+  &:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
 `;
 
