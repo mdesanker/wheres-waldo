@@ -1,14 +1,19 @@
+import { Fragment } from "react";
 import styled from "styled-components";
+import Hero from "../../components/Hero";
 import LevelsContainer from "./LevelsContainer";
 
 const Home = () => {
   return (
-    <Wrapper>
+    <Fragment>
+      <Hero />
       <HomeContainer>
-        <LevelTitle>Choose a level</LevelTitle>
+        <LevelTitle>
+          Choose <span>a</span> level
+        </LevelTitle>
         <LevelsContainer />
       </HomeContainer>
-    </Wrapper>
+    </Fragment>
   );
 };
 
@@ -18,18 +23,17 @@ const LevelTitle = styled.h1`
   letter-spacing: 0.2rem;
   font-weight: 100;
   padding-bottom: 2rem;
+
+  & span {
+    color: red;
+  }
 `;
 
-const HomeContainer = styled.div`
+const HomeContainer = styled.main`
   width: 100%;
   max-width: 1200px;
-  margin: 50px auto;
-`;
-
-const Wrapper = styled.main`
-  width: 100%;
-  min-height: 100vh;
-  background-color: white;
+  padding: 3rem 0;
+  margin: 0 auto;
 `;
 
 export default Home;

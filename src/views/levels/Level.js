@@ -23,7 +23,6 @@ const Level = (props) => {
       const q = query(levelsRef, where("name", "==", `level-${name}`));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        // console.log(doc.data());
         setLevelInfo(doc.data());
       });
     };
