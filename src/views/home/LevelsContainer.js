@@ -1,27 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import LevelCard from "./LevelCard";
 import levelData from "../../utils/levels.json";
 import database from "../../utils/firebase";
 import { collection, query, where, getDocs } from "@firebase/firestore";
+import LevelContext from "../../utils/level-context";
 
 const LevelsContainer = (props) => {
-  const [levelInfo, setLevelInfo] = useState([]);
+  // const [levelInfo, setLevelInfo] = useState([]);
   const levels = levelData;
 
-  useEffect(() => {
-    const fetchLevel = async () => {
-      const levelsRef = collection(database, "levels");
-      const querySnapshot = await getDocs(levelsRef);
-      querySnapshot.forEach((doc) => {
-        setLevelInfo(doc.data());
-      });
-    };
+  // useEffect(() => {
+  //   const fetchLevel = async () => {
+  //     const levelsRef = collection(database, "levels");
+  //     const querySnapshot = await getDocs(levelsRef);
+  //     querySnapshot.forEach((doc) => {
+  //       setLevelInfo(doc.data());
+  //     });
+  //   };
 
-    fetchLevel();
-  }, []);
+  //   fetchLevel();
+  // }, []);
 
-  console.log(levelInfo);
+  // console.log(levelInfo);
+
+  const ctx = useContext(LevelContext);
+  console.log(ctx.levels);
 
   const importAll = (r) => {
     const images = {};
