@@ -36,14 +36,14 @@ const MenuContainer = styled.div`
   left: ${(props) => (props.pos ? `${props.pos[0] * 100}%` : 0)};
   top: ${(props) => (props.pos ? `${props.pos[1] * 100}%` : 0)};
   width: 100px;
+  height: auto;
   display: flex;
   flex-direction: column;
+  margin: 4px 0 0 2px;
   z-index: 100;
 
   display: ${(props) => (props.show ? "none" : "block")};
 
-  border-radius: 5px;
-  border: 1px solid #e5e5e5;
   background-color: #f1f1f1;
 `;
 
