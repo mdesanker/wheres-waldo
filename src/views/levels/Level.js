@@ -9,13 +9,19 @@ import LevelContext from "../../utils/level-context";
 
 const Level = (props) => {
   const { id } = useParams();
-  console.log("id", id);
-
+  const [currentLevel, setCurrentLevel] = useState();
   const ctx = useContext(LevelContext);
-  const currentLevel = ctx.levels.find((level) => {
-    return level.id.toString() === id;
-  });
+
+  useEffect(() => {
+    setCurrentLevel(ctx.levels.find((level) => level.id.toString() === id));
+  }, [ctx, id]);
+
   console.log(currentLevel);
+
+  // Get relevant image for level selected
+  const image = require(`../../images/${currentLevel.name}.jpg`).default;
+
+  ////////////////////////////////////////////
 
   const [levelInfo, setLevelInfo] = useState({});
   const [click, setClick] = useState([]);
@@ -41,9 +47,6 @@ const Level = (props) => {
       setCharacters(Object.keys(levelInfo.objectives));
     }
   }, [levelInfo.objectives]);
-
-  // Get relevant image for level selected
-  // const image = require(`../../images/waldo-${name}.jpg`).default;
 
   const clickHandler = (e) => {
     // Get board dimensions at time of click
@@ -101,8 +104,8 @@ const Level = (props) => {
           vis={menuHidden}
           onItemClick={menuItemClickHandler}
         />
-        <Map id="board" />
-        {/* <Map src={image} id="board" /> */}
+        {/* <Map id="board" /> */}
+        <Map src={image} id="board" />
       </BoardContainer>
     </LevelWrapper>
   );
