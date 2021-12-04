@@ -16,11 +16,12 @@ const Gameover = () => {
 
 const Modal = () => {
   const ctx = useContext(LevelContext);
+  console.log(ctx);
 
   return (
     <ModalContainer>
       <form>
-        <h2>You finished in "X" seconds!</h2>
+        <h2>You finished in {ctx.duration} seconds!</h2>
         <p>Enter username to save score to leaderboard.</p>
         <ModalInput type="text" minLength="3" maxLength="3" id="name" />
         <ButtonContainer>
