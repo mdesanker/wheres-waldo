@@ -4,8 +4,13 @@ import GlobalStyle from "./themes/GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Level from "./views/levels/Level";
 import Gameover from "./views/gameover/Gameover";
+import { useContext } from "react";
+import LevelContext from "./utils/level-context";
 
 const RouterSwitch = () => {
+  const ctx = useContext(LevelContext);
+  console.log(ctx);
+
   return (
     <Router>
       <GlobalStyle />
@@ -13,7 +18,7 @@ const RouterSwitch = () => {
         <Route path="/wheres-waldo" element={<Home />} />
         <Route path="/wheres-waldo/level/:id" element={<Level />} />
       </Routes>
-      <Gameover />
+      {ctx.isGameOver && <Gameover />}
       <Footer />
     </Router>
   );
