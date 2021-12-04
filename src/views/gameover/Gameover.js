@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import Button from "../../components/Button";
 
 const Gameover = () => {
   return (
@@ -11,13 +12,63 @@ const Gameover = () => {
   );
 };
 
-const Modal = styled.div`
+const Modal = () => {
+  return (
+    <ModalContainer>
+      <form>
+        <h2>You finished in "X" seconds!</h2>
+        <p>Enter username to save score to leaderboard.</p>
+        <input type="text" minlength="3" maxlength="3" id="name" />
+        <ButtonContainer>
+          <ModalButton theme={{ color: "blue", background: "transparent" }}>
+            Cancel
+          </ModalButton>
+          <ModalButton theme={{ color: "white", background: "blue" }}>
+            Submit
+          </ModalButton>
+        </ButtonContainer>
+      </form>
+    </ModalContainer>
+  );
+};
+
+const ModalButton = styled(Button)`
+  padding: 0.7rem 1rem;
+  margin: 0.5rem;
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const ModalContainer = styled.div`
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
-  height: 200px;
-  background-color: #e5e5e5;
-  border: 1px solid black;
+  height: 300px;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
   z-index: 100;
+
+  & form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+  }
+
+  & input {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 0.5rem;
+  }
 `;
 
 const Overlay = styled.div`

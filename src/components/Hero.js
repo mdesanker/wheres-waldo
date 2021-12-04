@@ -12,7 +12,9 @@ const Hero = () => {
             <h1>Where's</h1>
             <h1>Waldo?</h1>
           </Title>
-          <Button theme={{ background: "gray" }}>Leaderboard</Button>
+          <Button theme={{ color: "white", background: "gray" }}>
+            Leaderboard
+          </Button>
         </TitleWrapper>
       </Logo>
     </HeroWrapper>
