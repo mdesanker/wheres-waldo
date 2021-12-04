@@ -56,9 +56,10 @@ const Level = (props) => {
   useEffect(() => {
     if (found.length && found.length === characters.length) {
       // Game over logic here
-      ctx.gameOverHandler();
+      // console.log("check runs");
+      ctx.gameOverHandler(seconds);
     }
-  }, [found, characters]);
+  }, [found, characters, seconds]);
 
   // Timer initialize on page load
   useEffect(() => {
@@ -69,7 +70,7 @@ const Level = (props) => {
         // console.log(seconds);
       }, 1000);
     } else if (ctx.isGameOver) {
-      props.timeHandler(seconds);
+      // props.timeHandler(seconds);
       clearInterval(timer);
     }
 

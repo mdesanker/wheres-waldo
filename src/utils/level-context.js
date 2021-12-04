@@ -5,8 +5,9 @@ import { collection, query, getDocs, orderBy } from "@firebase/firestore";
 const LevelContext = React.createContext({
   levels: [],
   currentLevel: {},
-  cardClickHandler: () => {},
   isGameOver: false,
+  duration: 0,
+  cardClickHandler: () => {},
   gameOverHandler: () => {},
   gameResetHandler: () => {},
 });
@@ -15,6 +16,7 @@ export const LevelContextProvider = (props) => {
   const [levels, setLevels] = useState([]);
   const [currentLevel, setCurrentLevel] = useState();
   const [isGameOver, setIsGameOver] = useState(false);
+  const [duration, setDuration] = useState(0);
 
   useEffect(() => {
     const fetchLevel = async () => {
@@ -37,12 +39,14 @@ export const LevelContextProvider = (props) => {
     setCurrentLevel(levels.find((level) => level.id.toString() === id));
   };
 
-  const gameOverHandler = () => {
-    console.log("game over func");
+  const gameOverHandler = (time) => {
+    // console.log("game over func");
+    setDuration(time);
     setIsGameOver(true);
   };
 
   const gameResetHandler = () => {
+    setDuration(0);
     setIsGameOver(false);
   };
 
@@ -51,8 +55,9 @@ export const LevelContextProvider = (props) => {
       value={{
         levels: levels,
         currentLevel: currentLevel,
-        cardClickHandler: cardClickHandler,
         isGameOver: isGameOver,
+        duration: duration,
+        cardClickHandler: cardClickHandler,
         gameOverHandler: gameOverHandler,
         gameResetHandler: gameResetHandler,
       }}
