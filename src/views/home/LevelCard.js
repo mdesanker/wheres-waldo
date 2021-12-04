@@ -18,7 +18,7 @@ const LevelCard = (props) => {
     <CardContainer id={level.id} onClick={ctx.cardClickHandler}>
       <NavLink to={`/wheres-waldo/level/${level.id}`}>
         <ImageContainer src={image} alt={`${props.level.name} map`} />
-        <Label>{level.name}</Label>
+        <Label>{level.title}</Label>
       </NavLink>
     </CardContainer>
   );
