@@ -4,8 +4,8 @@ import GlobalStyle from "./themes/GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Level from "./views/levels/Level";
 import Gameover from "./views/gameover/Gameover";
-import { useState, useContext } from "react";
-import LevelContext from "./utils/level-context";
+import { useContext } from "react";
+import LevelContext from "./store/level-context";
 import Leaderboard from "./views/leaderboard/Leaderboard";
 
 const RouterSwitch = () => {

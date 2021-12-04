@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import RouterSwitch from "./RouterSwitch";
-import { LevelContextProvider } from "./utils/level-context";
+import { LevelContextProvider } from "./store/LevelProvider";
 
 ReactDOM.render(
   <LevelContextProvider>

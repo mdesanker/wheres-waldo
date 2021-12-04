@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import LevelContext from "../../utils/level-context";
+import LevelContext from "../../store/level-context";
 
 const LevelCard = (props) => {
   const ctx = useContext(LevelContext);

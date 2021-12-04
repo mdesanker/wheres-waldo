@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Characters from "./Characters";
 import Menu from "../../components/Menu";
-import LevelContext from "../../utils/level-context";
+import LevelContext from "../../store/level-context";
 
 const Level = (props) => {
   const [click, setClick] = useState([]);

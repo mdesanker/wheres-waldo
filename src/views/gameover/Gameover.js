@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../../components/Button";
-import LevelContext from "../../utils/level-context";
+import LevelContext from "../../store/level-context";
 
 const Gameover = () => {
   return (

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import LevelCard from "./LevelCard";
-import LevelContext from "../../utils/level-context";
+import LevelContext from "../../store/level-context";
 
 const LevelsContainer = () => {
   const ctx = useContext(LevelContext);

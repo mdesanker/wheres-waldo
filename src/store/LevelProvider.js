@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
 import database from "../utils/firebase";
 import { collection, query, getDocs, orderBy } from "@firebase/firestore";
-
-const LevelContext = React.createContext({
-  levels: [],
-  currentLevel: {},
-  isGameOver: false,
-  duration: 0,
-  cardClickHandler: () => {},
-  gameOverHandler: () => {},
-  gameResetHandler: () => {},
-});
+import LevelContext from "./level-context";
 
 export const LevelContextProvider = (props) => {
   const [levels, setLevels] = useState([]);
@@ -67,4 +58,4 @@ export const LevelContextProvider = (props) => {
   );
 };
 
-export default LevelContext;
+export default LevelContextProvider;
