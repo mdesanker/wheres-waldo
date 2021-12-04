@@ -12,6 +12,7 @@ const Gameover = () => {
 };
 
 const Modal = styled.div`
+  position: fixed;
   width: 500px;
   height: 200px;
   background-color: #e5e5e5;
