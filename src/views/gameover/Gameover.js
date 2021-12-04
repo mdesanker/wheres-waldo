@@ -18,7 +18,7 @@ const Modal = () => {
       <form>
         <h2>You finished in "X" seconds!</h2>
         <p>Enter username to save score to leaderboard.</p>
-        <input type="text" minlength="3" maxlength="3" id="name" />
+        <ModalInput type="text" minLength="3" maxLength="3" id="name" />
         <ButtonContainer>
           <ModalButton theme={{ color: "blue", background: "transparent" }}>
             Cancel
@@ -31,6 +31,12 @@ const Modal = () => {
     </ModalContainer>
   );
 };
+
+const ModalInput = styled.input`
+  font-size: 1rem;
+  line-height: 2rem;
+  padding-left: 0.5rem;
+`;
 
 const ModalButton = styled(Button)`
   padding: 0.7rem 1rem;
@@ -65,9 +71,9 @@ const ModalContainer = styled.div`
   }
 
   & input {
-    font-size: 1rem;
-    line-height: 2rem;
-    padding-left: 0.5rem;
+    // font-size: 1rem;
+    // line-height: 2rem;
+    // padding-left: 0.5rem;
   }
 `;
 
