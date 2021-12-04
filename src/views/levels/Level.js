@@ -4,11 +4,11 @@ import Characters from "./Characters";
 import Menu from "../../components/Menu";
 import LevelContext from "../../utils/level-context";
 
-const Level = () => {
+const Level = (props) => {
   const [click, setClick] = useState([]);
   const [menuHidden, setMenuHidden] = useState(true);
   const [found, setFound] = useState([]);
-  const [seconds, setSeconds] = useState(0);
+  const [seconds, setSeconds] = useState(1);
 
   const ctx = useContext(LevelContext);
   // console.log(ctx);
@@ -57,7 +57,6 @@ const Level = () => {
     if (found.length && found.length === characters.length) {
       // Game over logic here
       ctx.gameOverHandler();
-      console.log(ctx);
     }
   }, [found, characters]);
 
@@ -67,9 +66,10 @@ const Level = () => {
     if (!ctx.isGameOver) {
       timer = setInterval(() => {
         setSeconds((seconds) => seconds + 1);
-        console.log(seconds);
+        // console.log(seconds);
       }, 1000);
     } else if (ctx.isGameOver) {
+      props.timeHandler(seconds);
       clearInterval(timer);
     }
 
