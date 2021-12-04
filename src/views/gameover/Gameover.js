@@ -6,8 +6,8 @@ import Button from "../../components/Button";
 const Gameover = () => {
   return (
     <Fragment>
-      {ReactDOM.createPortal(<Overlay />, document.querySelector("#overlay"))};
-      {ReactDOM.createPortal(<Modal />, document.querySelector("#modal"))};
+      {ReactDOM.createPortal(<Overlay />, document.querySelector("#overlay"))}
+      {ReactDOM.createPortal(<Modal />, document.querySelector("#modal"))}
     </Fragment>
   );
 };

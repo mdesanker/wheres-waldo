@@ -7,6 +7,7 @@ const LevelContext = React.createContext({
   currentLevel: {},
   cardClickHandler: () => {},
   isGameOver: false,
+  gameOverHandler: () => {},
 });
 
 export const LevelContextProvider = (props) => {
@@ -36,6 +37,7 @@ export const LevelContextProvider = (props) => {
   };
 
   const gameOverHandler = () => {
+    console.log("game over func");
     setIsGameOver(true);
   };
 
@@ -50,6 +52,7 @@ export const LevelContextProvider = (props) => {
         currentLevel: currentLevel,
         cardClickHandler: cardClickHandler,
         isGameOver: isGameOver,
+        gameOverHandler: gameOverHandler,
       }}
     >
       {props.children}

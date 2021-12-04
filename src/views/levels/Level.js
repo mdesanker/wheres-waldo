@@ -10,7 +10,7 @@ const Level = () => {
   const [found, setFound] = useState([]);
 
   const ctx = useContext(LevelContext);
-  console.log(ctx.currentLevel);
+  // console.log(ctx);
 
   const image =
     ctx.currentLevel &&
@@ -55,7 +55,8 @@ const Level = () => {
   useEffect(() => {
     if (found.length && found.length === characters.length) {
       // Game over logic here
-      console.log("game over");
+      ctx.gameOverHandler();
+      console.log(ctx);
     }
   }, [found, characters]);
 
