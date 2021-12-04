@@ -54,7 +54,7 @@ const Level = () => {
       // Game over logic here
       console.log("game over");
     }
-  }, [found]);
+  }, [found, characters]);
 
   return (
     <LevelWrapper onClick={clickHandler}>
