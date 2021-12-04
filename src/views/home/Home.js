@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
-import Hero from "../../components/Hero";
+import Hero from "./Hero";
 import LevelsContainer from "./LevelsContainer";
 
 const Home = () => {

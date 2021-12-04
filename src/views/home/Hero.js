@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import waldoStamp from "../images/waldo-stamp.jpg";
-import Button from "./Button";
+import waldoStamp from "../../images/waldo-stamp.jpg";
+import Button from "../../components/Button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -12,9 +13,11 @@ const Hero = () => {
             <h1>Where's</h1>
             <h1>Waldo?</h1>
           </Title>
-          <Button theme={{ color: "white", background: "gray" }}>
-            Leaderboard
-          </Button>
+          <Link to="/wheres-waldo/leaderboard">
+            <Button theme={{ color: "white", background: "gray" }}>
+              Leaderboard
+            </Button>
+          </Link>
         </TitleWrapper>
       </Logo>
     </HeroWrapper>

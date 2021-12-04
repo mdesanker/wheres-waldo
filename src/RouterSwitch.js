@@ -6,6 +6,7 @@ import Level from "./views/levels/Level";
 import Gameover from "./views/gameover/Gameover";
 import { useState, useContext } from "react";
 import LevelContext from "./utils/level-context";
+import Leaderboard from "./views/leaderboard/Leaderboard";
 
 const RouterSwitch = () => {
   // const [duration, setDuration] = useState(0);
@@ -24,6 +25,7 @@ const RouterSwitch = () => {
       <Routes>
         <Route path="/wheres-waldo" element={<Home />} />
         <Route path="/wheres-waldo/level/:id" element={<Level />} />
+        <Route path="/wheres-waldo/leaderboard" element={<Leaderboard />} />
       </Routes>
       {ctx.isGameOver && <Gameover />}
       <Footer />
