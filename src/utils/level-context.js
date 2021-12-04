@@ -6,11 +6,13 @@ const LevelContext = React.createContext({
   levels: [],
   currentLevel: {},
   cardClickHandler: () => {},
+  isGameOver: false,
 });
 
 export const LevelContextProvider = (props) => {
   const [levels, setLevels] = useState([]);
   const [currentLevel, setCurrentLevel] = useState();
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     const fetchLevel = async () => {
@@ -33,12 +35,21 @@ export const LevelContextProvider = (props) => {
     setCurrentLevel(levels.find((level) => level.id.toString() === id));
   };
 
+  const gameOverHandler = () => {
+    setIsGameOver(true);
+  };
+
+  const gameResetHandler = () => {
+    setIsGameOver(false);
+  };
+
   return (
     <LevelContext.Provider
       value={{
         levels: levels,
         currentLevel: currentLevel,
         cardClickHandler: cardClickHandler,
+        isGameOver: isGameOver,
       }}
     >
       {props.children}
