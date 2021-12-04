@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../../components/Button";
+import LevelContext from "../../utils/level-context";
 
 const Gameover = () => {
   return (
@@ -13,6 +15,8 @@ const Gameover = () => {
 };
 
 const Modal = () => {
+  const ctx = useContext(LevelContext);
+
   return (
     <ModalContainer>
       <form>
@@ -20,9 +24,14 @@ const Modal = () => {
         <p>Enter username to save score to leaderboard.</p>
         <ModalInput type="text" minLength="3" maxLength="3" id="name" />
         <ButtonContainer>
-          <ModalButton theme={{ color: "blue", background: "transparent" }}>
-            Cancel
-          </ModalButton>
+          <Link to="/wheres-waldo">
+            <ModalButton
+              theme={{ color: "blue", background: "transparent" }}
+              onClick={ctx.gameResetHandler}
+            >
+              Cancel
+            </ModalButton>
+          </Link>
           <ModalButton theme={{ color: "white", background: "blue" }}>
             Submit
           </ModalButton>
