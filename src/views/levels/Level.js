@@ -12,9 +12,12 @@ const Level = () => {
   const ctx = useContext(LevelContext);
   console.log(ctx.currentLevel);
 
-  const image = require(`../../images/${ctx.currentLevel.name}.jpg`).default;
+  const image =
+    ctx.currentLevel &&
+    require(`../../images/${ctx.currentLevel.name}.jpg`).default;
 
-  const characters = Object.keys(ctx.currentLevel.objectives);
+  const characters =
+    ctx.currentLevel && Object.keys(ctx.currentLevel.objectives);
 
   const clickHandler = (e) => {
     // Get board dimensions at time of click
@@ -50,7 +53,7 @@ const Level = () => {
   };
 
   useEffect(() => {
-    if (found.length === characters.length) {
+    if (found.length && found.length === characters.length) {
       // Game over logic here
       console.log("game over");
     }

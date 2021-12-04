@@ -2,13 +2,15 @@ import styled from "styled-components";
 import capitalize from "../utils/Capitalize";
 
 const Menu = (props) => {
-  const content = props.chars.map((char) => {
-    return (
-      <MenuItem key={char} name={char} onClick={props.onItemClick}>
-        {capitalize(char)}
-      </MenuItem>
-    );
-  });
+  const content =
+    props.chars &&
+    props.chars.map((char) => {
+      return (
+        <MenuItem key={char} name={char} onClick={props.onItemClick}>
+          {capitalize(char)}
+        </MenuItem>
+      );
+    });
 
   return (
     <MenuContainer pos={props.position} show={props.vis}>

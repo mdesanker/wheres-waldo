@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 
 const Characters = (props) => {
-  const charList = props.chars.map((char) => {
-    return (
-      <CharacterIcon
-        key={char}
-        img={require(`../../images/${char}.jpg`).default}
-        name={char}
-        found={props.found.includes(char) ? true : false}
-      />
-    );
-  });
+  const charList =
+    props.chars &&
+    props.chars.map((char) => {
+      return (
+        <CharacterIcon
+          key={char}
+          img={require(`../../images/${char}.jpg`).default}
+          name={char}
+          found={props.found.includes(char) ? true : false}
+        />
+      );
+    });
 
   return (
     <Wrapper>
