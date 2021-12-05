@@ -6,7 +6,11 @@ const LevelTab = (props) => {
   const image = require(`../../images/${props.level.name}.jpg`).default;
 
   return (
-    <Wrapper active={props.active}>
+    <Wrapper
+      id={props.level.id}
+      active={props.active}
+      onClick={props.onTabClick}
+    >
       <TabImage alt={props.level.title} src={image} />
       <LevelLabel>{props.level.title}</LevelLabel>
     </Wrapper>
@@ -43,9 +47,9 @@ const Wrapper = styled.div`
 
   transition: 200ms all;
 
-  &:hover {
-    transform: translateY(-3px);
-  }
+  // &:hover {
+  //   transform: translateY(-3px);
+  // }
 `;
 
 export default LevelTab;

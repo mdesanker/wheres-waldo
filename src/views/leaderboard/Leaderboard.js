@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import styled from "styled-components";
 import LevelContext from "../../store/level-context";
 import LevelTab from "./LevelTab";
@@ -6,10 +6,24 @@ import ScoreTable from "./ScoreTable";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
-  // console.log(levelCtx);
+  console.log(levelCtx);
+
+  const [activeLevelID, setActiveLevelID] = useState(1);
+
+  const activeLevelClickHandler = (e) => {
+    const { id } = e.target.closest("div");
+    setActiveLevelID(Number.parseInt(id));
+  };
 
   const levels = levelCtx.levels.map((level) => {
-    return <LevelTab key={level.id} level={level} />;
+    return (
+      <LevelTab
+        key={level.id}
+        level={level}
+        active={level.id === activeLevelID}
+        onTabClick={activeLevelClickHandler}
+      />
+    );
   });
 
   return (
