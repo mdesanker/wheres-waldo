@@ -13,11 +13,13 @@ const EntryName = styled.p`
   font-size: 1rem;
   color: black;
   text-transform: uppercase;
+  padding: 0 6rem;
 `;
 
 const EntryTime = styled.p`
   font-size: 1rem;
   color: rgb(120, 120, 120);
+  padding: 0 6rem;
 `;
 
 const EntryContainer = styled.div`

@@ -22,6 +22,10 @@ const TableHeader = styled.div`
   padding: 0.5rem;
   background-color: #f1f1f1;
   color: rgb(100, 100, 100);
+
+  & p {
+    padding: 0 6rem;
+  }
 `;
 
 const TableContainer = styled.div`
