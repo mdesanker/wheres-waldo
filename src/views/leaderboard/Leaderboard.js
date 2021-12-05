@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
+import LevelTab from "./LevelTab";
 
 const Leaderboard = () => {
   return (
@@ -7,7 +8,9 @@ const Leaderboard = () => {
       <LeaderboardHeader>
         <h1>Leaderboard</h1>
       </LeaderboardHeader>
-      <LeaderboardContainer></LeaderboardContainer>
+      <LeaderboardContainer>
+        <LevelTab active={false}></LevelTab>
+      </LeaderboardContainer>
     </Fragment>
   );
 };
