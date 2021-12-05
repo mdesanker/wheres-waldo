@@ -17,7 +17,7 @@ const RouterSwitch = () => {
   // };
 
   const ctx = useContext(LevelContext);
-  console.log(ctx);
+  // console.log(ctx);
 
   return (
     <Router>

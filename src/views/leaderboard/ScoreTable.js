@@ -1,14 +1,24 @@
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import LevelContext from "../../store/level-context";
 import TableEntry from "./TableEntry";
 
-const ScoreTable = () => {
+const ScoreTable = (props) => {
+  const scores = props.info.scores
+    ? props.info.scores
+        .sort((a, b) => a.time - b.time)
+        .map((score) => {
+          return <TableEntry info={score} />;
+        })
+    : "";
+
   return (
     <TableContainer>
       <TableHeader>
         <p>Name</p>
         <p>Time (s)</p>
       </TableHeader>
-      <TableEntry />
+      {scores}
     </TableContainer>
   );
 };

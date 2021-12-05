@@ -47,9 +47,9 @@ const Wrapper = styled.div`
 
   transition: 200ms all;
 
-  // &:hover {
-  //   transform: translateY(-3px);
-  // }
+  &:hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export default LevelTab;

@@ -6,9 +6,15 @@ import ScoreTable from "./ScoreTable";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
-  console.log(levelCtx);
+  // console.log(levelCtx);
 
   const [activeLevelID, setActiveLevelID] = useState(1);
+
+  const currentLevelInfo = levelCtx.levels.find(
+    (level) => level.id === activeLevelID
+  );
+
+  console.log(currentLevelInfo);
 
   const activeLevelClickHandler = (e) => {
     const { id } = e.target.closest("div");
@@ -33,7 +39,7 @@ const Leaderboard = () => {
       </LeaderboardHeader>
       <LeaderboardContainer>
         <TabContainer>{levels}</TabContainer>
-        <ScoreTable />
+        <ScoreTable info={currentLevelInfo} levelid={activeLevelID} />
       </LeaderboardContainer>
     </Fragment>
   );
