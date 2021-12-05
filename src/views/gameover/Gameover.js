@@ -30,6 +30,21 @@ const Modal = () => {
 
   // console.log(ctx.currentLevel.id);
 
+  useEffect(() => {
+    const fetchLevel = async () => {
+      const docRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        console.log("Data: ", docSnap.data());
+      } else {
+        console.log("No such doc");
+      }
+    };
+
+    fetchLevel();
+  }, []);
+
   const scoreSubmitHandler = (e) => {
     e.preventDefault();
     // console.log("submitted");

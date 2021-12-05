@@ -16,11 +16,11 @@ export const LevelContextProvider = (props) => {
       const querySnapshot = await getDocs(q);
       let levelsList = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        // console.log(doc.data());
         levelsList.push({ ...doc.data(), docID: doc.id });
       });
       // setLevels once list populated
-      console.log(levelsList);
+      // console.log(levelsList);
       setLevels(levelsList);
     };
 
