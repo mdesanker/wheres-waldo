@@ -58,7 +58,7 @@ const Level = (props) => {
       // Game over logic here
       ctx.gameOverHandler(seconds);
     }
-  }, [found, characters, seconds]);
+  }, [found, characters, seconds, ctx]);
 
   // Timer initialize on page load
   useEffect(() => {
