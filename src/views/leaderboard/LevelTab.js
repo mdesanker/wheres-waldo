@@ -28,9 +28,9 @@ const TabImage = styled.img`
 `;
 
 const Wrapper = styled.div`
-  width: 400px;
+  width: 350px;
   height: 100px;
-  margin: 1rem;
+  margin: 0.5rem;
   border-radius: 10px;
   display: flex;
   border: 1px solid #e5e5e5;

@@ -9,13 +9,32 @@ const Leaderboard = () => {
         <h1>Leaderboard</h1>
       </LeaderboardHeader>
       <LeaderboardContainer>
-        <LevelTab active={false}></LevelTab>
+        <TabContainer>
+          <LevelTab active={false} />
+          <LevelTab active={false} />
+          <LevelTab active={false} />
+          <LevelTab active={false} />
+          <LevelTab active={false} />
+          <LevelTab active={false} />
+        </TabContainer>
       </LeaderboardContainer>
     </Fragment>
   );
 };
 
-const LeaderboardContainer = styled.main``;
+const TabContainer = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`;
+
+const LeaderboardContainer = styled.main`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
 
 const LeaderboardHeader = styled.header`
   width: 100%;
