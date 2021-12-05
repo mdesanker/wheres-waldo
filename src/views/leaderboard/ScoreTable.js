@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import LevelContext from "../../store/level-context";
 import TableEntry from "./TableEntry";
+import uniqid from "uniqid";
 
 const ScoreTable = (props) => {
-  const scores = props.info.scores
+  const scores = props.info
     ? props.info.scores
         .sort((a, b) => a.time - b.time)
         .map((score) => {
-          return <TableEntry info={score} />;
+          return <TableEntry key={uniqid()} info={score} />;
         })
     : "";
 
@@ -18,7 +17,7 @@ const ScoreTable = (props) => {
         <p>Name</p>
         <p>Time (s)</p>
       </TableHeader>
-      {scores}
+      {scores ? scores : ""}
     </TableContainer>
   );
 };
