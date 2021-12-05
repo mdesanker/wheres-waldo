@@ -1,9 +1,20 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import LevelContext from "../../store/level-context";
+import database from "../../utils/firebase";
+import {
+  doc,
+  updateDoc,
+  query,
+  getDoc,
+  where,
+  collection,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
 
 const Gameover = () => {
   return (
@@ -16,31 +27,40 @@ const Gameover = () => {
 
 const Modal = () => {
   const ctx = useContext(LevelContext);
-  console.log(ctx);
+
+  // console.log(ctx.currentLevel.id);
+
+  const scoreSubmitHandler = (e) => {
+    e.preventDefault();
+    // console.log("submitted");
+    // console.log(ctx.currentLevel);
+    // console.log(ctx.duration);
+  };
 
   return (
     <ModalContainer>
-      <form>
+      <form onSubmit={scoreSubmitHandler}>
         <h2>You finished in {ctx.duration} seconds!</h2>
         <p>Enter username to save score to leaderboard.</p>
         <ModalInput type="text" minLength="3" maxLength="3" id="name" />
         <ButtonContainer>
           <Link to="/wheres-waldo">
             <ModalButton
+              type="button"
               theme={{ color: "blue", background: "transparent" }}
               onClick={ctx.gameResetHandler}
             >
               Cancel
             </ModalButton>
           </Link>
-          <Link to="/wheres-waldo/leaderboard">
-            <ModalButton
-              theme={{ color: "white", background: "blue" }}
-              onClick={ctx.gameResetHandler}
-            >
-              Submit
-            </ModalButton>
-          </Link>
+          {/* <Link to="/wheres-waldo/leaderboard"> */}
+          <ModalButton
+            type="submit"
+            theme={{ color: "white", background: "blue" }}
+          >
+            Submit
+          </ModalButton>
+          {/* </Link> */}
         </ButtonContainer>
       </form>
     </ModalContainer>
