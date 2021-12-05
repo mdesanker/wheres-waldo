@@ -1,22 +1,23 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import styled from "styled-components";
+import LevelContext from "../../store/level-context";
 import LevelTab from "./LevelTab";
 
 const Leaderboard = () => {
+  const levelCtx = useContext(LevelContext);
+  // console.log(levelCtx);
+
+  const levels = levelCtx.levels.map((level) => {
+    return <LevelTab key={level.id} level={level} />;
+  });
+
   return (
     <Fragment>
       <LeaderboardHeader>
         <h1>Leaderboard</h1>
       </LeaderboardHeader>
       <LeaderboardContainer>
-        <TabContainer>
-          <LevelTab active={false} />
-          <LevelTab active={false} />
-          <LevelTab active={false} />
-          <LevelTab active={false} />
-          <LevelTab active={false} />
-          <LevelTab active={false} />
-        </TabContainer>
+        <TabContainer>{levels}</TabContainer>
       </LeaderboardContainer>
     </Fragment>
   );

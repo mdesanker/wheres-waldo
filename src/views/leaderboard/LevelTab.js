@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const LevelTab = (props) => {
-  // console.log(props);
+  console.log(props);
+
+  const image = require(`../../images/${props.level.name}.jpg`).default;
+
   return (
     <Wrapper active={props.active}>
-      <TabImage />
-      <LevelLabel>A Day on the Slopes</LevelLabel>
+      <TabImage alt={props.level.title} src={image} />
+      <LevelLabel>{props.level.title}</LevelLabel>
     </Wrapper>
   );
 };
@@ -25,6 +28,7 @@ const TabImage = styled.img`
   height: 100%;
   border-radius: 10px 0 0 10px;
   border: none;
+  object-fit: cover;
 `;
 
 const Wrapper = styled.div`
