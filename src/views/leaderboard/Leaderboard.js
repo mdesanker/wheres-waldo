@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import LevelContext from "../../store/level-context";
@@ -8,7 +8,14 @@ import Button from "../../components/Button";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
+  console.log(levelCtx);
   const [activeLevelID, setActiveLevelID] = useState(1);
+
+  useEffect(() => {
+    if (levelCtx.currentLevel) {
+      setActiveLevelID(levelCtx.currentLevel.id);
+    }
+  }, []);
 
   const currentLevelInfo = levelCtx.levels.find(
     (level) => level.id === activeLevelID
