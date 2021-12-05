@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TableEntry from "./TableEntry";
 
 const ScoreTable = () => {
   return (
@@ -7,6 +8,7 @@ const ScoreTable = () => {
         <p>Name</p>
         <p>Time (s)</p>
       </TableHeader>
+      <TableEntry />
     </TableContainer>
   );
 };
@@ -17,7 +19,7 @@ const TableHeader = styled.div`
   justify-content: space-between;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.3rem;
+  padding: 0.5rem;
   background-color: #f1f1f1;
   color: rgb(100, 100, 100);
 `;
