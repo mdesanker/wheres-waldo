@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const LevelTab = (props) => {
-  console.log(props);
+  // console.log(props);
 
   const image = require(`../../images/${props.level.name}.jpg`).default;
 
@@ -33,7 +33,7 @@ const TabImage = styled.img`
 
 const Wrapper = styled.div`
   width: 350px;
-  height: 100px;
+  height: 70px;
   margin: 0.5rem;
   border-radius: 10px;
   display: flex;
