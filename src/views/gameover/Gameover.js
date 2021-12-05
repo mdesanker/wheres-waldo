@@ -33,9 +33,14 @@ const Modal = () => {
               Cancel
             </ModalButton>
           </Link>
-          <ModalButton theme={{ color: "white", background: "blue" }}>
-            Submit
-          </ModalButton>
+          <Link to="/wheres-waldo/leaderboard">
+            <ModalButton
+              theme={{ color: "white", background: "blue" }}
+              onClick={ctx.gameResetHandler}
+            >
+              Submit
+            </ModalButton>
+          </Link>
         </ButtonContainer>
       </form>
     </ModalContainer>

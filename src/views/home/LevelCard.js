@@ -31,7 +31,9 @@ const ImageContainer = styled.img`
 
 const Label = styled.label`
   width: 100%;
-  height: 30px;
+  height: auto;
+  font-weight: 500;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
