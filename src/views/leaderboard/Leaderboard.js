@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import styled from "styled-components";
 import LevelContext from "../../store/level-context";
 import LevelTab from "./LevelTab";
+import ScoreTable from "./ScoreTable";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
@@ -18,6 +19,7 @@ const Leaderboard = () => {
       </LeaderboardHeader>
       <LeaderboardContainer>
         <TabContainer>{levels}</TabContainer>
+        <ScoreTable />
       </LeaderboardContainer>
     </Fragment>
   );
@@ -26,6 +28,7 @@ const Leaderboard = () => {
 const TabContainer = styled.div`
   width: 100%;
   height: auto;
+  margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
