@@ -14,6 +14,7 @@ import {
   collection,
   orderBy,
   getDocs,
+  arrayUnion,
 } from "firebase/firestore";
 
 const Gameover = () => {
@@ -34,15 +35,13 @@ const Modal = () => {
     const fetchLevel = async () => {
       const docRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
       const docSnap = await getDoc(docRef);
-
       if (docSnap.exists()) {
         console.log("Data: ", docSnap.data());
       } else {
         console.log("No such doc");
       }
     };
-
-    fetchLevel();
+    // fetchLevel();
   }, []);
 
   const scoreSubmitHandler = (e) => {
@@ -50,6 +49,18 @@ const Modal = () => {
     // console.log("submitted");
     // console.log(ctx.currentLevel);
     // console.log(ctx.duration);
+
+    const addScore = async () => {
+      const levelRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
+      await updateDoc(levelRef, {
+        scores: arrayUnion({
+          name: "AGN",
+          time: ctx.duration,
+        }),
+      });
+    };
+
+    addScore();
   };
 
   return (
