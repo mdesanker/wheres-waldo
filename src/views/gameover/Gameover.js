@@ -1,5 +1,5 @@
 import { Fragment, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../../components/Button";
@@ -28,29 +28,32 @@ const Gameover = () => {
 
 const Modal = () => {
   const ctx = useContext(LevelContext);
+  const navigate = useNavigate();
 
   // console.log(ctx.currentLevel.id);
 
-  useEffect(() => {
-    const fetchLevel = async () => {
-      const docRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        console.log("Data: ", docSnap.data());
-      } else {
-        console.log("No such doc");
-      }
-    };
-    // fetchLevel();
-  }, []);
+  // useEffect(() => {
+  //   const fetchLevel = async () => {
+  //     const docRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
+  //     const docSnap = await getDoc(docRef);
+  //     if (docSnap.exists()) {
+  //       console.log("Data: ", docSnap.data());
+  //     } else {
+  //       console.log("No such doc");
+  //     }
+  //   };
+  //   // fetchLevel();
+  // }, []);
 
   const scoreSubmitHandler = (e) => {
+    console.log("clicked");
     e.preventDefault();
 
     const name = document.querySelector("#name");
 
     const addScore = async () => {
       const levelRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
+      console.log(name.value, ctx.duration);
       await updateDoc(levelRef, {
         scores: arrayUnion({
           name: name.value,
@@ -60,6 +63,8 @@ const Modal = () => {
     };
 
     addScore();
+    navigate("/wheres-waldo/leaderboard");
+    ctx.gameResetHandler();
   };
 
   return (
@@ -82,6 +87,7 @@ const Modal = () => {
           <ModalButton
             type="submit"
             theme={{ color: "white", background: "blue" }}
+            to="/wheres-waldo/leaderboard"
           >
             Submit
           </ModalButton>

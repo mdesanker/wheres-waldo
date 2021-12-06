@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import database from "../utils/firebase";
-import { collection, query, getDocs, orderBy } from "@firebase/firestore";
+import {
+  collection,
+  query,
+  getDocs,
+  orderBy,
+  doc,
+  updateDoc,
+  arrayUnion,
+} from "@firebase/firestore";
 import LevelContext from "./level-context";
 
 export const LevelContextProvider = (props) => {
@@ -39,9 +47,25 @@ export const LevelContextProvider = (props) => {
   };
 
   const gameResetHandler = () => {
+    console.log("game reset");
     setDuration(0);
     setIsGameOver(false);
   };
+
+  // const submitScoreHandler = (name, time) => {
+  //   const addScore = async () => {
+  //     const levelRef = doc(database, "levels", `${currentLevel.docID}`);
+  //     await updateDoc(levelRef, {
+  //       scores: arrayUnion({
+  //         name: name,
+  //         time: time,
+  //       }),
+  //     });
+  //   };
+
+  //   addScore();
+  //   setIsGameOver(false);
+  // };
 
   return (
     <LevelContext.Provider
@@ -53,6 +77,7 @@ export const LevelContextProvider = (props) => {
         cardClickHandler: cardClickHandler,
         gameOverHandler: gameOverHandler,
         gameResetHandler: gameResetHandler,
+        // submitScoreHandler: submitScoreHandler,
       }}
     >
       {props.children}

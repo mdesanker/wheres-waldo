@@ -8,6 +8,7 @@ const LevelContext = React.createContext({
   cardClickHandler: () => {},
   gameOverHandler: () => {},
   gameResetHandler: () => {},
+  submitScoreHandler: () => {},
 });
 
 export default LevelContext;
