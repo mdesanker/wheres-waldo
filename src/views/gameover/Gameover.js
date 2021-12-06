@@ -46,15 +46,14 @@ const Modal = () => {
 
   const scoreSubmitHandler = (e) => {
     e.preventDefault();
-    // console.log("submitted");
-    // console.log(ctx.currentLevel);
-    // console.log(ctx.duration);
+
+    const name = document.querySelector("#name");
 
     const addScore = async () => {
       const levelRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
       await updateDoc(levelRef, {
         scores: arrayUnion({
-          name: "AGN",
+          name: name.value,
           time: ctx.duration,
         }),
       });
