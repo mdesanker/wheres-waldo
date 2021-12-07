@@ -13,4 +13,5 @@ export const badWordList = [
   "sht",
   "cnt",
   "8=D",
+  "fku",
 ];

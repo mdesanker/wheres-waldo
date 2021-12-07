@@ -22,7 +22,9 @@ const Characters = (props) => {
       <Menu>
         <CharacterContainer>{charList}</CharacterContainer>
         <Link to="/wheres-waldo">
-          <Button theme={{ color: "white", background: "blue" }}>Home</Button>
+          <Button theme={{ color: "white", background: "crimson" }}>
+            Home
+          </Button>
         </Link>
       </Menu>
     </Wrapper>

@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   display: flex;
   border: 1px solid #e5e5e5;
 
-  background-color: ${(props) => (props.active ? "#e5e5e5" : "transparent")};
+  background-color: ${({ active }) => (active ? "gainsboro" : "transparent")};
 
   transition: 200ms all;
 

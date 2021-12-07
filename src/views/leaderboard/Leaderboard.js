@@ -43,7 +43,9 @@ const Leaderboard = () => {
         <HeaderContainer>
           <h1>Leaderboard</h1>
           <Link to="/wheres-waldo">
-            <Button theme={{ color: "white", background: "blue" }}>Home</Button>
+            <Button theme={{ color: "white", background: "steelblue" }}>
+              Home
+            </Button>
           </Link>
         </HeaderContainer>
       </LeaderboardHeader>

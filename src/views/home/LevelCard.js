@@ -41,6 +41,7 @@ const CardContainer = styled.div`
   height: auto;
   margin-bottom: 2rem;
   border-radius: 0 0 5px 5px;
+  transition: box-shadow 100ms;
 
   a {
     text-decoration: none;
