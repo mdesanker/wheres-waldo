@@ -6,7 +6,7 @@ const LevelContext = React.createContext({
   isGameOver: false,
   duration: 0,
   cardClickHandler: () => {},
-  gameOverHandler: () => {},
+  gameOverHandler: (time) => {},
   gameResetHandler: () => {},
 });
 

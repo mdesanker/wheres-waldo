@@ -11,16 +11,19 @@ export const LevelContextProvider = (props) => {
 
   useEffect(() => {
     const fetchLevel = async () => {
-      const levelsRef = collection(database, "levels");
-      const q = query(levelsRef, orderBy("id"));
-      const querySnapshot = await getDocs(q);
-      let levelsList = [];
-      querySnapshot.forEach((doc) => {
-        // console.log(doc.data());
-        levelsList.push({ ...doc.data(), docID: doc.id });
-      });
-      // setLevels once list populated
-      setLevels(levelsList);
+      try {
+        const levelsRef = collection(database, "levels");
+        const q = query(levelsRef, orderBy("id"));
+        const querySnapshot = await getDocs(q);
+        let levelsList = [];
+        querySnapshot.forEach((doc) => {
+          levelsList.push({ ...doc.data(), docID: doc.id });
+        });
+        // Wait for levelsList to fill to set state
+        setLevels(levelsList);
+      } catch (err) {
+        console.error(err.message);
+      }
     };
 
     fetchLevel();
@@ -37,7 +40,6 @@ export const LevelContextProvider = (props) => {
   };
 
   const gameResetHandler = () => {
-    console.log("game reset");
     setDuration(0);
     setIsGameOver(false);
   };
