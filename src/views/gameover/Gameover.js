@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import LevelContext from "../../store/level-context";
 import database from "../../utils/firebase";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { badWordList } from "./CensoredWords";
 
 const Gameover = () => {
   return (
@@ -28,10 +29,11 @@ const Modal = () => {
 
     const addScore = async () => {
       const levelRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
-      console.log(name.value, ctx.duration);
+      // console.log(name.value, ctx.duration);
+
       await updateDoc(levelRef, {
         scores: arrayUnion({
-          name: name.value,
+          name: badWordList.includes(name.value) ? "***" : name.value,
           time: ctx.duration,
         }),
       });

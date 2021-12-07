@@ -1,0 +1,16 @@
+export const badWordList = [
+  "ass",
+  "cum",
+  "fag",
+  "gay",
+  "god",
+  "jew",
+  "tit",
+  "kkk",
+  "fuk",
+  "cok",
+  "dik",
+  "sht",
+  "cnt",
+  "8=D",
+];
