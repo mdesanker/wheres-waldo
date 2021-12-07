@@ -8,8 +8,6 @@ import { doc, getDoc } from "@firebase/firestore";
 
 const ScoreTable = (props) => {
   const ctx = useContext(LevelContext);
-  console.log(props.levelid);
-  console.log(ctx.levels[0].docID);
 
   const [currentScores, setCurrentScores] = useState([]);
 
@@ -33,7 +31,7 @@ const ScoreTable = (props) => {
     };
 
     fetchScores();
-  }, [props.levelid]);
+  }, [props.levelid, ctx.levels]);
 
   const scores = currentScores
     ? currentScores
@@ -41,7 +39,7 @@ const ScoreTable = (props) => {
         .map((score) => {
           return <TableEntry key={uniqid()} info={score} />;
         })
-    : "No scores yet";
+    : "";
 
   return (
     <TableContainer>

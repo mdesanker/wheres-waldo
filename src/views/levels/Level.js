@@ -28,8 +28,6 @@ const Level = () => {
     const x = (e.clientX - left) / width;
     const y = (e.clientY - top) / height;
 
-    console.log(x, y);
-
     if (e.target.id === "board") {
       setMenuHidden(false);
       setClick([x, y]);

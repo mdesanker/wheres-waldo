@@ -22,7 +22,6 @@ const Modal = () => {
   const navigate = useNavigate();
 
   const scoreSubmitHandler = (e) => {
-    console.log("clicked");
     e.preventDefault();
 
     const name = document.querySelector("#name");
