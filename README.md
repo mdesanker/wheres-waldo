@@ -1,6 +1,6 @@
 # Where's Waldo
 
-A Where's Waldo browser game created with React
+A Where's Waldo browser game created with React. Player times can be submitted to a leaderboard with their initials. Offensive initials are censored.
 
 Live demo [here](https://mdesanker.github.io/wheres-waldo)
 
@@ -20,4 +20,5 @@ npm start
 - React
 - React Router
 - styled-components
+- Context API
 - Firebase - Firestore
