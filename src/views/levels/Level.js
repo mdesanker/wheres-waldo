@@ -4,14 +4,13 @@ import Characters from "./Characters";
 import Menu from "../../components/Menu";
 import LevelContext from "../../store/level-context";
 
-const Level = (props) => {
+const Level = () => {
   const [click, setClick] = useState([]);
   const [menuHidden, setMenuHidden] = useState(true);
   const [found, setFound] = useState([]);
   const [seconds, setSeconds] = useState(1);
 
   const ctx = useContext(LevelContext);
-  // console.log(ctx);
 
   const image =
     ctx.currentLevel &&

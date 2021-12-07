@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const TableEntry = (props) => {
-  // console.log(props.info);
   const { name, time } = props.info;
 
   return (

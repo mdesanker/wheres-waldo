@@ -1,21 +1,11 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import LevelContext from "../../store/level-context";
 import database from "../../utils/firebase";
-import {
-  doc,
-  updateDoc,
-  query,
-  getDoc,
-  where,
-  collection,
-  orderBy,
-  getDocs,
-  arrayUnion,
-} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 
 const Gameover = () => {
   return (
@@ -29,21 +19,6 @@ const Gameover = () => {
 const Modal = () => {
   const ctx = useContext(LevelContext);
   const navigate = useNavigate();
-
-  // console.log(ctx.currentLevel.id);
-
-  // useEffect(() => {
-  //   const fetchLevel = async () => {
-  //     const docRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
-  //     const docSnap = await getDoc(docRef);
-  //     if (docSnap.exists()) {
-  //       console.log("Data: ", docSnap.data());
-  //     } else {
-  //       console.log("No such doc");
-  //     }
-  //   };
-  //   // fetchLevel();
-  // }, []);
 
   const scoreSubmitHandler = (e) => {
     console.log("clicked");
@@ -71,7 +46,7 @@ const Modal = () => {
     <ModalContainer>
       <form onSubmit={scoreSubmitHandler}>
         <h2>You finished in {ctx.duration} seconds!</h2>
-        <p>Enter username to save score to leaderboard.</p>
+        <p>Enter 3 letter username to save score to leaderboard.</p>
         <ModalInput type="text" minLength="3" maxLength="3" id="name" />
         <ButtonContainer>
           <Link to="/wheres-waldo">

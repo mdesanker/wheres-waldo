@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const LevelTab = (props) => {
-  // console.log(props);
-
   const image = require(`../../images/${props.level.name}.jpg`).default;
 
   return (

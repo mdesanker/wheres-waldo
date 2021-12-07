@@ -6,10 +6,7 @@ import LevelContext from "../../store/level-context";
 const LevelCard = (props) => {
   const ctx = useContext(LevelContext);
 
-  // console.log(props.level);
-
   const { level } = props;
-  // console.log(level);
 
   // Get relevant image for level selected
   const image = require(`../../images/${level.name}.jpg`).default;

@@ -8,7 +8,7 @@ import Button from "../../components/Button";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
-  // console.log(levelCtx);
+
   const [activeLevelID, setActiveLevelID] = useState(1);
 
   useEffect(() => {
@@ -20,8 +20,6 @@ const Leaderboard = () => {
   const currentLevelInfo = levelCtx.levels.find(
     (level) => level.id === activeLevelID
   );
-
-  // console.log(currentLevelInfo);
 
   const activeLevelClickHandler = (e) => {
     const { id } = e.target.closest("div");

@@ -20,7 +20,6 @@ export const LevelContextProvider = (props) => {
         levelsList.push({ ...doc.data(), docID: doc.id });
       });
       // setLevels once list populated
-      // console.log(levelsList);
       setLevels(levelsList);
     };
 
@@ -33,7 +32,6 @@ export const LevelContextProvider = (props) => {
   };
 
   const gameOverHandler = (time) => {
-    // console.log("game over func");
     setDuration(time);
     setIsGameOver(true);
   };

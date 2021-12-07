@@ -74,8 +74,6 @@ const TableContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 5rem;
-
-  // border: 1px solid red;
 `;
 
 export default ScoreTable;
