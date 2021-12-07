@@ -29,7 +29,6 @@ const Modal = () => {
 
     const addScore = async () => {
       const levelRef = doc(database, "levels", `${ctx.currentLevel.docID}`);
-      // console.log(name.value, ctx.duration);
 
       await updateDoc(levelRef, {
         scores: arrayUnion({

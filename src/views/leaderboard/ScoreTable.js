@@ -41,7 +41,7 @@ const ScoreTable = (props) => {
         .map((score) => {
           return <TableEntry key={uniqid()} info={score} />;
         })
-    : "";
+    : "No scores yet";
 
   return (
     <TableContainer>
@@ -49,10 +49,19 @@ const ScoreTable = (props) => {
         <p>Name</p>
         <p>Time (s)</p>
       </TableHeader>
-      {scores ? scores : ""}
+      {scores.length === 0 && (
+        <NoScoreMsg>No scores yet. Will you be the first?</NoScoreMsg>
+      )}
+      {scores}
     </TableContainer>
   );
 };
+
+const NoScoreMsg = styled.p`
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+`;
 
 const TableHeader = styled.div`
   width: 100%;
