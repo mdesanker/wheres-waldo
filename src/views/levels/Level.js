@@ -8,7 +8,7 @@ const Level = () => {
   const [click, setClick] = useState([]);
   const [menuHidden, setMenuHidden] = useState(true);
   const [found, setFound] = useState([]);
-  const [seconds, setSeconds] = useState(1);
+  const [time, setTime] = useState(1);
 
   const ctx = useContext(LevelContext);
 
@@ -55,23 +55,23 @@ const Level = () => {
   useEffect(() => {
     if (found.length && found.length === characters.length) {
       // Game over logic here
-      ctx.gameOverHandler(seconds);
+      ctx.gameOverHandler(time / 1000);
     }
-  }, [found, characters, seconds, ctx]);
+  }, [found, characters, time, ctx]);
 
   // Timer initialize on page load
   useEffect(() => {
     let timer;
     if (!ctx.isGameOver) {
       timer = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
-      }, 1000);
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
     } else if (ctx.isGameOver) {
       clearInterval(timer);
     }
 
     return () => clearInterval(timer);
-  }, [ctx.isGameOver, seconds]);
+  }, [ctx.isGameOver, time]);
 
   return (
     <LevelWrapper onClick={clickHandler}>
