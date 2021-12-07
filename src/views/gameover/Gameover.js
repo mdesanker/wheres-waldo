@@ -33,7 +33,7 @@ const Modal = () => {
 
       await updateDoc(levelRef, {
         scores: arrayUnion({
-          name: badWordList.includes(name.value) ? "***" : name.value,
+          name: badWordList.includes(name.value) ? "🤫🤫🤫" : name.value,
           time: ctx.duration,
         }),
       });
