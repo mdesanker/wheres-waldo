@@ -1,10 +1,42 @@
 import styled from "styled-components";
 import TableEntry from "./TableEntry";
 import uniqid from "uniqid";
+import { useContext, useEffect, useState } from "react";
+import LevelContext from "../../store/level-context";
+import database from "../../utils/firebase";
+import { doc, getDoc } from "@firebase/firestore";
 
 const ScoreTable = (props) => {
-  const scores = props.info
-    ? props.info.scores
+  const ctx = useContext(LevelContext);
+  console.log(props.levelid);
+  console.log(ctx.levels[0].docID);
+
+  const [currentScores, setCurrentScores] = useState([]);
+
+  useEffect(() => {
+    const fetchScores = async () => {
+      try {
+        const scoreRef = doc(
+          database,
+          "levels",
+          `${ctx.levels[props.levelid - 1].docID}`
+        );
+        const scoreSnap = await getDoc(scoreRef);
+        if (scoreSnap.exists()) {
+          setCurrentScores(scoreSnap.data().scores);
+        } else {
+          console.log("no data");
+        }
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
+
+    fetchScores();
+  }, [props.levelid]);
+
+  const scores = currentScores
+    ? currentScores
         .sort((a, b) => a.time - b.time)
         .map((score) => {
           return <TableEntry key={uniqid()} info={score} />;

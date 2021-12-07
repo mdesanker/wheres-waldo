@@ -8,7 +8,7 @@ import Button from "../../components/Button";
 
 const Leaderboard = () => {
   const levelCtx = useContext(LevelContext);
-  console.log(levelCtx);
+  // console.log(levelCtx);
   const [activeLevelID, setActiveLevelID] = useState(1);
 
   useEffect(() => {

@@ -83,7 +83,6 @@ const Modal = () => {
               Cancel
             </ModalButton>
           </Link>
-          {/* <Link to="/wheres-waldo/leaderboard"> */}
           <ModalButton
             type="submit"
             theme={{ color: "white", background: "blue" }}
@@ -91,7 +90,6 @@ const Modal = () => {
           >
             Submit
           </ModalButton>
-          {/* </Link> */}
         </ButtonContainer>
       </form>
     </ModalContainer>
