@@ -10,9 +10,8 @@ const Button = styled.button`
   border-radius: 5px;
   margin: 1rem;
 
-  color: ${(props) => props.theme.color};
-  // background-color: #2a9d8f;
-  background-color: ${(props) => props.theme.background};
+  color: ${({ theme }) => theme.color};
+  background-color: ${({ theme }) => theme.background};
   opacity: 0.5;
 
   transition: 200ms all;

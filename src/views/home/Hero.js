@@ -14,7 +14,7 @@ const Hero = () => {
             <h1>Waldo?</h1>
           </Title>
           <Link to="/wheres-waldo/leaderboard">
-            <Button theme={{ color: "white", background: "gray" }}>
+            <Button theme={{ color: "white", background: "teal" }}>
               Leaderboard
             </Button>
           </Link>

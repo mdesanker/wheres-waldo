@@ -8,9 +8,7 @@ const Home = () => {
     <Fragment>
       <Hero />
       <HomeContainer>
-        <LevelTitle>
-          Choose <span>a</span> level
-        </LevelTitle>
+        <LevelTitle>Choose a level</LevelTitle>
         <LevelsContainer />
       </HomeContainer>
     </Fragment>
@@ -23,10 +21,6 @@ const LevelTitle = styled.h1`
   letter-spacing: 0.2rem;
   font-weight: 100;
   padding-bottom: 2rem;
-
-  & span {
-    color: red;
-  }
 `;
 
 const HomeContainer = styled.main`
