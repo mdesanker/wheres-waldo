@@ -46,8 +46,14 @@ const Modal = () => {
     <ModalContainer>
       <form onSubmit={scoreSubmitHandler}>
         <h2>You finished in {ctx.duration} seconds!</h2>
-        <p>Enter 3 letter username to save score to leaderboard.</p>
-        <ModalInput type="text" minLength="3" maxLength="3" id="name" />
+        <p>Enter 3 initials to save score to leaderboard.</p>
+        <ModalInput
+          type="text"
+          minLength="3"
+          maxLength="3"
+          id="name"
+          required
+        />
         <ButtonContainer>
           <Link to="/wheres-waldo">
             <ModalButton
